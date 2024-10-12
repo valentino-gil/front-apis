@@ -60,21 +60,37 @@ body, html {
     font-size: 1.2rem; /* Aumentamos el tamaño de la fuente de los inputs */
   }
   
-  .registrarse {
+  .ingresar {
     width: 100%;
-    padding: 18px; /* Aumentamos el tamaño del botón */
-    background-color: #1e90ff; /* color del boton*/
-    color: rgb(255, 255, 255); /* color del texto de ingresar*/
+    padding: 18px; /* Tamaño del botón */
+    background-color: #1e90ff; /* Color del botón */
+    color: rgb(255, 255, 255); /* Color del texto de Ingresar */
     border: none;
+    margin-bottom: 15px; /* Separación entre los botones */
     border-radius: 8px;
-    font-size: 1.5rem; /* Aumentamos el tamaño de la fuente del botón */
+    font-size: 1.5rem; /* Tamaño de la fuente del botón */
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .registrarse:hover {
-    background-color: #1c86e3;
-  }
-  
-  
-  
+}
+
+.ingresar:hover {
+    background-color: #1c86e3; /* Color en hover */
+}
+
+/* Estilos para el botón Registrarse */
+.registrarse {
+    width: 100%;
+    padding: 12px; /* Tamaño del botón más pequeño */
+    background-color: #87cefa; /* Color sutilmente diferente */
+    color: rgb(255, 255, 255); /* Color del texto de Registrarse */
+    border: none;
+    margin-bottom: 15px; /* Separación entre los botones */
+    border-radius: 8px;
+    font-size: 1.2rem; /* Tamaño de la fuente más pequeño */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.registrarse:hover {
+    background-color: #7ec0df; /* Color en hover */
+}

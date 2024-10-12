@@ -29,6 +29,10 @@ const LoginView = () => {
     }
   };
 
+  const handleRegisterRedirect = () => {
+    navigate('/registro'); // Redirige a la vista RegisterView
+  };
+
   return (
     <div className="login-container">
       <div className="login-form">
@@ -56,6 +60,7 @@ const LoginView = () => {
           </div>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <button className='registrarse' type="submit">Ingresar</button>
+          <button className='ingresar' type="button" onClick={handleRegisterRedirect}>Registrarse</button> {/* Cambia el tipo a button */}
         </form>
       </div>
     </div>
