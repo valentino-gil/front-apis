@@ -3,21 +3,25 @@ import { Link } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import LoginView from './Login';
 import Welcome from './welcome';  // Asegúrate de que la ruta sea correcta
-
+import '../estilos/Home.css'
+import NavBar from '../components/NavBar'
+import FeaturedCars from '../components/FeaturedCars';
 const Home = () => {
   return (
     <>
-      <ul>
-        <li>
-          <Link to='/Login'>Login</Link>
-        </li>
-        <li>
-          <Link to='/Welcome'>Welcome</Link>
-        </li>
-        <li>
-            <Link to = '/registro'>Registro</Link>
-        </li>
-      </ul>
+      <div>
+      <NavBar />
+      <section className="hero">
+        <h1>Tu nuevo automóvil está aquí</h1>
+        <p>
+          Descubre los últimos modelos con la mejor tecnología, rendimiento y
+          seguridad. Tu próximo vehículo te está esperando.
+        </p>
+        <button>Descubre nuestros autos</button>
+      </section>
+      <FeaturedCars />
+    </div>
+      
       
       <Routes>
         <Route path='/Login' element={<LoginView />} />
