@@ -1,0 +1,157 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* NavBar */
+  nav {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  nav li {
+    display: inline;
+    color: #000;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  nav input[type="text"] { /* modificar barra de busqueda*/
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #595d5f;
+    color: #000;
+    
+  }
+  
+  nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+
+.nav-left .logo {
+    width: 50px; /* Ajusta el tamaño aquí de la imagen */
+    height: auto; /* Mantiene la proporción del logo */
+}
+
+.icon {
+    font-size: 24px; /* Ajusta el tamaño de los íconos */
+    margin-left: 15px; /* Espacio entre los íconos y otros elementos */
+    color: #000; /* Cambia el color de los íconos */
+    cursor: pointer; /* Cursor tipo pointer para simular botón */
+}
+
+.nav-right{
+    display: flex;
+    align-items: center;
+}
+
+.logoUser{
+    width: 45px; /* Ajusta el tamaño aquí de la imagen */
+    height: auto; /* Mantiene la proporción del logo */
+    padding-left: 20px;
+}
+
+
+  
+
+
+  
+  /* Hero Section */
+  .hero {
+    background-image: url('link-to-hero-image');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .hero button {
+    background-color: #457b9d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .hero button:hover {
+    background-color: #1d3557;
+  }
+  
+  /* Featured Cars Section */
+  .featured-cars {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+  }
+  
+  .featured-cars h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .car-list {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .car-list div {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 200px;
+  }
+  
+  .car-list img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .car-list p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  

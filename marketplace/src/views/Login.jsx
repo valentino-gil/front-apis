@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Para redirigir al usuario
-
+import '../estilos/Login.css'
 const LoginView = () => {
   const [mail, setMail] = useState(''); // Cambia de email a mail
   const [contraseña, setContraseña] = useState(''); // Cambia de password a contraseña
@@ -59,8 +59,8 @@ const LoginView = () => {
             />
           </div>
           {error && <p style={{ color: 'red' }}>{error}</p>}
-          <button className='registrarse' type="submit">Ingresar</button>
-          <button className='ingresar' type="button" onClick={handleRegisterRedirect}>Registrarse</button> {/* Cambia el tipo a button */}
+          <button className='ingresar' type="submit">Ingresar</button>
+          <button className='registrarse' type="button" onClick={handleRegisterRedirect}>Crear cuenta</button> {/* Cambia el tipo a button */}
         </form>
       </div>
     </div>
