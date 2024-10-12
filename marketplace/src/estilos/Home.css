@@ -9,44 +9,73 @@
     font-family: Arial, sans-serif;
   }
   
-  /* NavBar */
+  /* NavBar recuadro (blanco detras de todo los iconos y barra de busqueda) */
   nav {
     background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 35px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
-  }
+    margin-top: 120px;
+}
   
   nav ul {
     list-style-type: none;
     display: flex;
     align-items: center;
-    gap: 20px;
-  }
-  
-  nav li {
-    display: inline;
-    color: #000;
-  }
-  
-  nav a {
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 40px; /* Aumenta el espaciado entre los elementos del menú */
+}
+
+nav a {
     text-decoration: none;
     color: #000;
     font-weight: bold;
-  }
-  
-  nav input[type="text"] { /* modificar barra de busqueda*/
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #595d5f;
+    font-size: 18px; 
+}
+
+nav li {
+  font-size: 1.5rem;
+    display: inline-block; /* Mantiene los elementos en línea */
     color: #000;
-    
-  }
-  
+    padding: 10px 20px; /* Ajusta el padding para más espacio alrededor del texto */
+}
+/*----------------------------------barra de busqueda en el home---------------------------*/
+nav input[type="text"] {
+  padding: 8px; /* Aumenta el padding para más espacio interno */
+  border: 2px solid #000; /* Borde negro */
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: #f1f1f1; /* Color gris claro */
+  color: #000; /* Color de texto negro */
+  width: 250px; /* Ancho de la barra */
+  margin-left: 20px; /* Ajusta este valor para mover la barra hacia la izquierda */
+  font-size: 24px; /* Tamaño de letra */
+}
+
+nav input[type="text"]::placeholder {
+  color: #888; /* Color del texto placeholder más suave */
+}
+.fondo-imagen {
+  background-image: url('/src/assets/fondoimagen.jpg'); /* Cambia la ruta por la de tu imagen */
+  background-size: cover; /* La imagen cubre todo el contenedor */
+  background-position: center; /* Centrar la imagen */
+  height: 400px; /* Altura del contenedor de la imagen */
+  display: flex; /* Para centrar el contenido */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+
+.recuadro-translucido {
+  background-color: rgba(255, 255, 255, 0.7); /* Blanco con 70% de opacidad */
+  padding: 20px; /* Espacio interno */
+  border-radius: 10px; /* Bordes redondeados */
+  width: 50%; /* Ancho del recuadro */
+  margin: 0 auto; /* Centrar el recuadro horizontalmente */
+  text-align: center; /* Centrar el texto */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+/*------------------------------------barra de busqueda en el home---------------------------*/
   nav button {
     background: none;
     border: none;
@@ -54,67 +83,91 @@
     font-size: 1.2rem;
   }
 
-.nav-left .logo {
-    width: 50px; /* Ajusta el tamaño aquí de la imagen */
+  .nav-left .logo {
+    width: 60px; /* Ajusta el tamaño aquí de la imagen */
     height: auto; /* Mantiene la proporción del logo */
-}
-
-.icon {
-    font-size: 24px; /* Ajusta el tamaño de los íconos */
-    margin-left: 15px; /* Espacio entre los íconos y otros elementos */
-    color: #000; /* Cambia el color de los íconos */
-    cursor: pointer; /* Cursor tipo pointer para simular botón */
 }
 
 .nav-right{
     display: flex;
     align-items: center;
 }
-
+/*----------------------------------------logos----------------------------*/
 .logoUser{
-    width: 45px; /* Ajusta el tamaño aquí de la imagen */
-    height: auto; /* Mantiene la proporción del logo */
+    width: 55px; 
+    height: auto; 
     padding-left: 20px;
 }
 
+.favoritos{
+  width: 55px; 
+  height: auto; 
+  padding-left: 20px;
+}
+  
+.logocarrito{
+  width: 55px; 
+  height: auto; 
+  padding-left: 20px;
+}
+/*---------------------------------------------------------------------------*/
+  
+/* presentacion Section */
 
-  
+.presentacion {
+  background-image: url('/src/assets/fondoimagen.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 80vh; /* Ajusta la altura para que no cubra todo el viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px;
+  color: white;
+  position: relative; /* Asegura que la sección no cubra otros elementos */
+  z-index: 1; /* Asegura que esté debajo de la barra de navegación */
+}
 
+.presentacion h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.7); /* Blanco con 70% de opacidad */
+  padding: 20px; /* Espacio interno */
+  border-radius: 10px; /* Bordes redondeados */
+  width: 50%; /* Ancho del recuadro */
+  margin: 0 auto; /* Centrar el recuadro horizontalmente */
+  text-align: center; /* Centrar el texto */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 
-  
-  /* Hero Section */
-  .hero {
-    background-image: url('link-to-hero-image');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  
-  .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-  }
-  
-  .hero button {
-    background-color: #457b9d;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .hero button:hover {
-    background-color: #1d3557;
-  }
+}
+
+.presentacion p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.7); /* Blanco con 70% de opacidad */
+  padding: 20px; /* Espacio interno */
+  border-radius: 10px; /* Bordes redondeados */
+  width: 50%; /* Ancho del recuadro */
+  margin: 0 auto; /* Centrar el recuadro horizontalmente */
+  text-align: center; /* Centrar el texto */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+
+}
+
+.presentacion button {
+  background-color: #457b9d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.hero button:hover {
+  background-color: #1d3557;
+}
   
   /* Featured Cars Section */
   .featured-cars {

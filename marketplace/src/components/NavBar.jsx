@@ -1,7 +1,8 @@
 import React from "react";
-import logo from '../assets/car.svg';  // Importa tu logo aquí
-import { FaUser, FaHeart, FaShoppingCart } from 'react-icons/fa';  // Importa los íconos
-import user from '../assets/user.svg';
+import logo from '../assets/car.svg';  // logo de la pagina
+import user from '../assets/user.svg'; // icono usuario
+import heart from '../assets/heart.svg'; // icono wishlist
+import carrito from '../assets/carrito.svg'; // icono carrito
 
 const NavBar = () => {
   return (
@@ -17,9 +18,9 @@ const NavBar = () => {
       </ul>
       <div className="nav-right">
         <input type="text" placeholder="Buscar autos..." />
-        <img src={user} alt="logoUser" className="logoUser" />
-        <FaHeart className="icon" />
-        <FaShoppingCart className="icon" />
+        <img src={user} alt="mi perfil" className="logoUser" />
+        <img src={heart} alt="favoritos" className="favoritos" />
+        <img src={carrito} alt="carrito" className="logocarrito" />
       </div>
     </nav>
   );
