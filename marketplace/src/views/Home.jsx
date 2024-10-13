@@ -9,15 +9,14 @@ import FeaturedCars from '../components/FeaturedCars';
 const Home = () => {
   return (
     <>
-      <div>
+      <div className='body'>
         <NavBar />
         <section className="presentacion">
-          <h1>Tu nuevo automóvil está aquí</h1>
-          <p>
-            Descubre los últimos modelos con la mejor tecnología, rendimiento y
-            seguridad. Tu próximo vehículo te está esperando.
-          </p>
-          <button>Descubre nuestros autos</button>
+          <div className="contenido">
+            <h1>Tu nuevo automóvil está aquí</h1>
+            <p>Descubre los últimos modelos con la mejor tecnología, rendimiento y seguridad. Tu próximo vehículo te está esperando.</p>
+            <button>Descubre nuestros autos</button>
+          </div>
         </section>
         <FeaturedCars />
       </div>
