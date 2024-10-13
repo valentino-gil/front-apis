@@ -5,9 +5,13 @@
   box-sizing: border-box;
 }
 
-body {
+.body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
 }
+
 
 /* NavBar recuadro */
 nav {
@@ -17,8 +21,13 @@ nav {
   align-items: center;
   padding: 1.5vw 8vw;
   box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
-  margin-top: 30vh;
+  position: fixed; /* Mantiene el nav fijo en la parte superior */
+  top: 0; /* Coloca el nav en la parte superior */
+  left: 0; /* Alinea el nav al borde izquierdo */
+  right: 0; /* Alinea el nav al borde derecho */
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
 }
+
 
 .nav-left {
   display: flex;
@@ -29,8 +38,10 @@ nav {
 .nav-left .logo {
   width: 5vw; /* Ajusta el tamaño del logo */
   height: auto;
-  margin-right: 2vw; /* Espacio entre logo y los enlaces */
+  margin-right: 6vw; /* Espacio entre logo y los enlaces */
   cursor: pointer;
+  
+  
 }
 
 .nav-center {
@@ -38,6 +49,7 @@ nav {
   justify-content: center;
   align-items: center;
   flex-grow: 1; /* Para que ocupe el espacio central */
+
 }
 
 nav ul {
@@ -77,6 +89,7 @@ nav input[type="text"] {
   width: 15vw;
   margin-left: 1vw;
   font-size: 1.2vw;
+  margin-right: 1vw;
 }
 
 nav input[type="text"]::placeholder {
@@ -88,6 +101,7 @@ nav input[type="text"]::placeholder {
   align-items: center;
   justify-content: flex-end;
   gap: 1vw; /* Ajusta el espacio entre íconos */
+  padding-left: 9vw;
 }
 
 /*los logos de perfil carrito y me gusta*/
@@ -104,40 +118,41 @@ nav input[type="text"]::placeholder {
 
 /* Presentación Section */
 .presentacion {
+  width: 100%; /* Asegúrate de que ocupe todo el ancho de la pantalla */
   background-image: url('/src/assets/fondoimagen.jpg');
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 10vh 2vw;
+  padding: 10vh 2vw; /* Mantén este padding para el espaciado */
   color: white;
+  margin-top: 18vw;
+}
+
+
+
+.presentacion .contenido {
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+  padding: 3vw; /* Espacio alrededor del texto */
+  border-radius: 1vw; /* Bordes redondeados */
+  width: 50vw; /* Ancho del contenedor */
+  text-align: center;
+  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
 }
 
 .presentacion h1 {
-  font-size: 3vw;
+  font-size: 2.5vw;
   margin-bottom: 2vh;
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 2vw;
-  border-radius: 1vw;
-  width: 50vw;
-  margin: 0 auto;
-  text-align: center;
-  box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.1);
+  color: #1d3557; /* Cambia el color del texto principal */
 }
 
 .presentacion p {
   font-size: 1.5vw;
   margin-bottom: 3vh;
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 2vw;
-  border-radius: 1vw;
-  width: 50vw;
-  margin: 0 auto;
-  text-align: center;
-  box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.1);
+  color: #333; /* Color de texto más oscuro */
 }
 
 .presentacion button {
@@ -154,12 +169,16 @@ nav input[type="text"]::placeholder {
   background-color: #1d3557;
 }
 
+
 /* Featured Cars Section */
 .featured-cars {
-  padding: 5vh 2vw;
+  width: 100%; /* Asegúrate de que ocupe todo el ancho de la pantalla */
+  padding: 5vh 2vw; /* Mantén el padding deseado */
   background-color: #f8f9fa;
   text-align: center;
+  
 }
+
 
 .featured-cars h2 {
   font-size: 2.5vw;
@@ -171,7 +190,9 @@ nav input[type="text"]::placeholder {
   justify-content: space-around;
   gap: 2vw;
   flex-wrap: wrap;
+  width: 100%; /* Asegúrate de que ocupe todo el ancho de la sección */
 }
+
 
 .car-list div {
   background-color: white;
