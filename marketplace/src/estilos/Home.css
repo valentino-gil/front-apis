@@ -118,7 +118,7 @@ nav input[type="text"]::placeholder {
 
 /* Presentación Section */
 .presentacion {
-  width: 100%; /* Asegúrate de que ocupe todo el ancho de la pantalla */
+  width: 100vw; /* Asegúrate de que ocupe todo el ancho de la pantalla */
   background-image: url('/src/assets/fondoimagen.jpg');
   background-size: cover;
   background-position: center;
@@ -129,7 +129,7 @@ nav input[type="text"]::placeholder {
   text-align: center;
   padding: 10vh 2vw; /* Mantén este padding para el espaciado */
   color: white;
-  margin-top: 18vw;
+  margin-top: 85vw;
 }
 
 
@@ -172,7 +172,7 @@ nav input[type="text"]::placeholder {
 
 /* Featured Cars Section */
 .featured-cars {
-  width: 100%; /* Asegúrate de que ocupe todo el ancho de la pantalla */
+  width: 100vw; /* Asegúrate de que ocupe todo el ancho de la pantalla */
   padding: 5vh 2vw; /* Mantén el padding deseado */
   background-color: #f8f9fa;
   text-align: center;
@@ -213,3 +213,65 @@ nav input[type="text"]::placeholder {
   font-weight: bold;
   color: #333;
 }
+
+/* Estilo para la sección de Top Vendedores */
+.top-sellers {
+  text-align: center;
+  padding: 5vw 2vw; /* Ajuste de padding */
+  background-color: #f8f9fa; /* Fondo ligero */
+}
+
+.top-sellers h2 {
+  font-size: 2.5vw; /* Tamaño ajustado para el título */
+  margin-bottom: 1.5vw; /* Espacio debajo del título */
+  color: #1d3557; /* Color primario */
+}
+
+.top-sellers p {
+  font-size: 1.2vw; /* Tamaño de fuente del subtítulo */
+  color: #6c757d; /* Color gris para el texto de introducción */
+  margin-bottom: 3vw; /* Espaciado inferior */
+}
+
+.sellers-container {
+  display: flex;
+  justify-content: center; /* Centrar los vendedores */
+  gap: 2vw; /* Espacio entre tarjetas de vendedores */
+  flex-wrap: wrap; /* Permitir que se ajusten en pantallas pequeñas */
+}
+
+.seller-card {
+  background-color: white; /* Fondo blanco para las tarjetas */
+  border-radius: 1vw; /* Bordes redondeados */
+  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 2vw; /* Padding dentro de las tarjetas */
+  text-align: center; /* Centrar contenido */
+  width: 25vw; /* Ancho de las tarjetas */
+  max-width: 90vw; /* Asegura que no sea demasiado ancho en pantallas pequeñas */
+}
+
+.seller-image {
+  width: 8vw; /* Tamaño de la imagen del vendedor */
+  height: 8vw; /* Mantén proporciones */
+  border-radius: 50%; /* Hacer la imagen redonda */
+  margin-bottom: 1.5vw; /* Espacio debajo de la imagen */
+}
+
+.seller-rating {
+  color: #28a745; /* Verde para las estrellas de calificación */
+  font-size: 1.8vw; /* Tamaño de las estrellas */
+  margin-bottom: 1vw; /* Espacio debajo de la calificación */
+}
+
+.seller-review {
+  font-size: 1.2vw; /* Tamaño del texto de la reseña */
+  color: #6c757d; /* Texto gris */
+  margin-bottom: 1vw; /* Espacio debajo de la reseña */
+}
+
+.seller-name {
+  font-weight: bold; /* Nombre en negrita */
+  font-size: 1.4vw; /* Tamaño del nombre */
+  color: #343a40; /* Color oscuro */
+}
+
