@@ -25,12 +25,6 @@ const Home = () => {
         <TopSellers /> 
       </div>
 
-      <Routes>
-        <Route path='/Login' element={<LoginView />} />
-        <Route path='/welcome' element={<Home />} />
-        <Route path='/registro' element={<RegisterView />} />
-        
-      </Routes>
     </>
   );
 };
