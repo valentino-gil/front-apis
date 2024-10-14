@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import LoginView from './Login';
 import Welcome from './welcome';  // Asegúrate de que la ruta sea correcta
+import CarritoView from './CarritoView';
 import '../estilos/Home.css'
 import NavBar from '../components/NavBar'
 import FeaturedCars from '../components/FeaturedCars';
@@ -25,6 +26,7 @@ const Home = () => {
         <Route path='/Login' element={<LoginView />} />
         <Route path='/Welcome' element={<Welcome />} /> {/* Ruta para la vista Welcome */}
         <Route path='/registro' element={<RegisterView />} />
+        <Route path='/carrito' element={<CarritoView />} />
       </Routes>
     </>
   );
