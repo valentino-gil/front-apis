@@ -1,11 +1,14 @@
+import React from 'react';
 import RegisterView from './RegisterView';
 import { Link } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import LoginView from './Login';
-import Welcome from './welcome';  // Asegúrate de que la ruta sea correcta
-import '../estilos/Home.css'
-import NavBar from '../components/NavBar'
+import Welcome from './welcome';
+import '../estilos/Home.css';
+import NavBar from '../components/NavBar';
 import FeaturedCars from '../components/FeaturedCars';
+import TopSellers from '../components/TopSellers'; 
+
 const Home = () => {
   return (
     <>
@@ -19,17 +22,20 @@ const Home = () => {
           </div>
         </section>
         <FeaturedCars />
+        <TopSellers /> 
       </div>
 
       <Routes>
         <Route path='/Login' element={<LoginView />} />
-        <Route path='/Welcome' element={<Welcome />} /> {/* Ruta para la vista Welcome */}
+        <Route path='/welcome' element={<Home />} />
         <Route path='/registro' element={<RegisterView />} />
+        
       </Routes>
     </>
   );
 };
 
 export default Home;
+
 
 
