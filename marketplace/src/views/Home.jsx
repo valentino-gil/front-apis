@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import RegisterView from './RegisterView';
 import LoginView from './Login';
-import Welcome from './welcome';
 import '../estilos/Home.css';
 import NavBar from '../components/NavBar';
 import FeaturedCars from '../components/FeaturedCars'; // Esto sigue mostrando lo más novedoso

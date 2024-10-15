@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
 import '../estilos/RegistroAutos.css';
+import { useNavigate } from 'react-router-dom';
 
 const RegistroAuto = () => {
   const [producto, setProducto] = useState({
@@ -15,6 +16,8 @@ const RegistroAuto = () => {
   });
   const [imagen, setImagen] = useState(null);
 
+  const navigate = useNavigate(); // Mover esto dentro del componente
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProducto((prev) => ({ ...prev, [name]: value }));
@@ -47,7 +50,9 @@ const RegistroAuto = () => {
 
       // Manejar la respuesta según sea necesario
       console.log('Producto registrado:', response.data);
-      navigate('/');
+
+      // Redirigir al home
+      navigate('/'); // Aquí se redirige al home
     } catch (error) {
       console.error('Error al registrar el producto:', error.response?.data || error.message);
     }
@@ -151,4 +156,3 @@ const RegistroAuto = () => {
 };
 
 export default RegistroAuto;
-
