@@ -9,6 +9,7 @@ import NavBar from '../components/NavBar';
 import FeaturedCars from '../components/FeaturedCars'; // Esto sigue mostrando lo más novedoso
 import TopSellers from '../components/TopSellers'; // Mostrando los autos más vendidos
 import MostSearchedCars from '../components/MostSearchedCars'; // Nueva sección para los autos más buscados
+import Footer from '../components/Footer';
 
 const Home = () => {
   return (
@@ -26,6 +27,7 @@ const Home = () => {
         <TopSellers />    {/* Autos más vendidos */}
         <MostSearchedCars /> {/* Nueva sección: Autos más buscados */}
       </div>
+      <Footer />  {/* Aquí agregas el Footer */}
     </>
   );
 };

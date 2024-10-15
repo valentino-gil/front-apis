@@ -13,7 +13,7 @@ const MostSearchedCars = () => {
         // Obtener modelos únicos
         const uniqueCarModels = Array.from(new Set(response.data.map(car => car.modelo)));
 
-        setCarModels(uniqueCarModels.slice(0, 10));//maximo 10 autos mostrara
+        setCarModels(uniqueCarModels.slice(0, 10)); // máximo 10 autos mostrará
       } catch (error) {
         console.error("Error fetching cars:", error);
       }
@@ -23,7 +23,7 @@ const MostSearchedCars = () => {
   }, []);
 
   return (
-    <section className="most-searched">
+    <section className="most-searched-cars-section"> {/* Cambié la clase */}
       <h2>Autos mas buscados</h2> {/* Título más grande */}
       <div className="car-list">
         {carModels.map((modelo, index) => (
