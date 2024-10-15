@@ -57,7 +57,7 @@ const NavBar = () => {
         <li>Servicios</li>
       </ul>
       <div className="nav-right">
-        <form onSubmit={handleSearch}> {/* Formulario para la búsqueda */}
+        <form onSubmit={handleSearch}> 
           <input 
             type="text" 
             placeholder="Buscar autos por marca o modelo..." 
