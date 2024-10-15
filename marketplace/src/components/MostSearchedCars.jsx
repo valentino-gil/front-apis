@@ -23,12 +23,12 @@ const MostSearchedCars = () => {
   }, []);
 
   return (
-    <section className="most-searched-cars-section"> {/* Cambié la clase */}
-      <h2>Autos mas buscados</h2> {/* Título más grande */}
+    <section className="most-searched-cars-section"> 
+      <h2>Autos mas buscados</h2> 
       <div className="car-list">
         {carModels.map((modelo, index) => (
           <div key={index} className="car-item">
-            <h3>{modelo}</h3> {/* Solo se muestra el nombre del modelo */}
+            <h3>{modelo}</h3> 
           </div>
         ))}
       </div>
