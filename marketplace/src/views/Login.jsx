@@ -20,7 +20,7 @@ const LoginView = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('authToken', data.token);  // Guarda el token en localStorage
-        navigate('/Welcome');  // Redirige a la página de bienvenida
+        navigate('/');  // Redirige a la página de bienvenida home
       } else {
         setError('Credenciales incorrectas');
       }
