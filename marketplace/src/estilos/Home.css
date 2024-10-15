@@ -176,13 +176,18 @@ nav input[type="text"]::placeholder {
   padding: 5vh 2vw; /* Mantén el padding deseado */
   background-color: #f8f9fa;
   text-align: center;
-  
+  cursor: pointer;
 }
 
+.featured-cars img:hover {
+  transform: scale(1.1); /* Aumenta el tamaño al pasar el cursor */
+
+}
 
 .featured-cars h2 {
   font-size: 2.5vw;
   margin-bottom: 4vh;
+  
 }
 
 .car-list {
