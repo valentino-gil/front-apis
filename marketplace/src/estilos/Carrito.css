@@ -1,11 +1,28 @@
-.cart-container{
+/* Aseguramos que el contenedor ocupe toda la pantalla */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #eaeaea;
-  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
 }
+
+.cart-container {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+}
+
   /* Cart Content Styles */
   .cart-content {
     margin-top: 20px;
-    padding:15px;
+    padding:3vw;
+    width: 80vw;
   }
   
   h2 {
