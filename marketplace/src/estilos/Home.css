@@ -280,3 +280,60 @@ nav li:hover{
   color: #343a40; /* Color oscuro */
 }
 
+/* Menú desplegable de usuario */
+.user-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 5vw; /* Aumenta este valor para que esté más abajo */
+  right: 0;
+  background-color: #fff;
+  border-radius: 0.5vw;
+  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+  padding: 1vw;
+  min-width: 10vw;
+  z-index: 2000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+/* Opciones en el menú */
+.menu-dropdown div {
+  padding: 0.5vw 1vw;
+  text-align: center;
+  font-size: 1.2vw;
+  font-weight: bold;
+  color: #1d3557;
+  cursor: pointer;
+  border-radius: 0.5vw;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 0.5vw; /* Añade espaciado entre las opciones */
+}
+
+
+.menu-dropdown div:hover {
+  background-color: #457b9d; /* Fondo al hacer hover */
+  color: #fff; /* Cambia el color del texto al hacer hover */
+}
+
+/* Opciones en el menú */
+.menu-dropdown .profile-option {
+  background-color: #f1f1f1; /* Fondo claro */
+}
+
+.menu-dropdown .logout-option {
+  background-color: #f8d7da; /* Fondo de alerta para cerrar sesión */
+  color: #721c24; /* Color rojo más intenso */
+}
+
+.menu-dropdown .logout-option:hover {
+  background-color: #f5c6cb; /* Hover en rojo más suave */
+}
+
+/* Si se quiere añadir espaciado entre las opciones */
+.menu-dropdown div + div {
+  margin-top: 0.5vw;
+}
+
+
