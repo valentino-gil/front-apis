@@ -1,0 +1,33 @@
+.contenedor-resultados {
+    display: flex;
+  }
+  
+  .filtros {
+    width: 25%;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-right: 1px solid #ddd;
+  }
+  
+  .resultados {
+    width: 75%;
+    padding: 20px;
+  }
+  
+  .lista-productos {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .producto {
+    width: 30%;
+    margin: 10px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    background-color: #fff;
+  }
+  
+  .producto h3 {
+    margin: 0 0 10px;
+  }
+  

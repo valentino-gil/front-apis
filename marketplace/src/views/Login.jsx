@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Para redirigir al usuario
 import '../estilos/Login.css'
+
+
 const LoginView = () => {
   const [mail, setMail] = useState(''); // Cambia de email a mail
   const [contraseña, setContraseña] = useState(''); // Cambia de password a contraseña
