@@ -5,6 +5,7 @@ import LoginView from './views/Login';
 import RegisterView from './views/RegisterView';
 import ResultadosSearchBar from './views/ResultadosSearchBar';
 import CarritoView from './views/CarritoView';
+import PerfilView from './views/PerfilView';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/registro" element={<RegisterView />} /> {/* Página de Registro */}
       <Route path="/resultados" element={<ResultadosSearchBar />} /> 
       <Route path="/carrito" element={<CarritoView />} /> 
+      <Route path="/perfil" element={<PerfilView />} /> 
     </Routes>
   );
 }

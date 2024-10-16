@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../estilos/Carrito.css';
+import NavBar from '../components/NavBar';
 import trashcan from '../assets/trashcan.svg';
 
 const CarritoView = () => {
@@ -28,36 +29,39 @@ const CarritoView = () => {
     };
 
     return (
-        <div className="cart-container">
-            <div className="cart-content">
-                <h2>Elementos del carrito</h2>
+        <div>
+            <NavBar /> {/* Agrega la barra de navegación aquí */}
+            <div className="cart-container">
+                <div className="cart-content">
+                    <h2>Mi Carrito</h2>
 
-                {Items.length === 0 ? (
-                    <p>No hay productos en el carrito.</p>
-                ) : (
-                    Items.map(item => (
-                        <div key={item.id} className="cart-item">
-                            <img src={item.image} alt={item.name} className="item-image" />
-                            <div className="item-details">
-                                <h3>{item.name}</h3>
-                                <div className="quantity-control">
-                                    <button onClick={() => actualizarCantidad(item.id, item.quantity - 1)}>-</button>
-                                    <span class="quantity">{item.quantity}</span>
-                                    <button onClick={() => actualizarCantidad(item.id, item.quantity + 1)}>+</button>
+                    {Items.length === 0 ? (
+                        <p>No hay productos en el carrito.</p>
+                    ) : (
+                        Items.map(item => (
+                            <div key={item.id} className="cart-item">
+                                <img src={item.image} alt={item.name} className="item-image" />
+                                <div className="item-details">
+                                    <h3>{item.name}</h3>
+                                    <div className="quantity-control">
+                                        <button onClick={() => actualizarCantidad(item.id, item.quantity - 1)}>-</button>
+                                        <span class="quantity">{item.quantity}</span>
+                                        <button onClick={() => actualizarCantidad(item.id, item.quantity + 1)}>+</button>
+                                    </div>
+                                    <button onClick={() => eliminarItem(item.id)} className="remove-button">Borrar <img src={trashcan} alt="borrar" className="logoTrashCan" /></button>
                                 </div>
-                                <button onClick={() => eliminarItem(item.id)} className="remove-button">Borrar <img src={trashcan} alt="borrar" className="logoTrashCan" /></button>
+                                <p className="item-total">${(item.price * item.quantity).toLocaleString()}</p>
                             </div>
-                            <p className="item-total">${(item.price * item.quantity).toLocaleString()}</p>
-                        </div>
-                    ))
-                )}
+                        ))
+                    )}
 
-                {Items.length > 0 && (
-                    <div className="cart-summary">
-                        <p class="total">Sub-total: ${calcularSubtotal().toLocaleString()}</p>
-                        <button className="checkout-button">Finalizar compra</button>
-                    </div>
-                )}
+                    {Items.length > 0 && (
+                        <div className="cart-summary">
+                            <p class="total">Sub-total: ${calcularSubtotal().toLocaleString()}</p>
+                            <button className="checkout-button">Finalizar compra</button>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
