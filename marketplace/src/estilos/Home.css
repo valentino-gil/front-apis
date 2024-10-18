@@ -15,7 +15,7 @@
 
 /* NavBar recuadro */
 nav {
-  background-color: #fff;
+  background-color: rgb(232, 12, 12);
   display: flex;
   justify-content: space-between;
   align-items: center;

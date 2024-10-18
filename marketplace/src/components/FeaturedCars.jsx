@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Importa el componente Link
 
 const FeaturedCars = () => {
   const [cars, setCars] = useState([]); // Estado para almacenar los autos
@@ -51,8 +52,11 @@ const FeaturedCars = () => {
         ) : (
           cars.map((car) => (
             <div key={car.id} className="car-item">
-              <img src={car.image} alt={car.name} />
-              <p>{car.name}</p>
+              {/* Usar Link para redirigir al detalle del auto */}
+              <Link to={`/car/${car.id}`}>
+                <img src={car.image} alt={car.name} />
+                <p>{car.name}</p>
+              </Link>
             </div>
           ))
         )}
@@ -62,4 +66,3 @@ const FeaturedCars = () => {
 };
 
 export default FeaturedCars;
-
