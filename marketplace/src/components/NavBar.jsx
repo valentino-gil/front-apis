@@ -91,7 +91,7 @@ const NavBar = () => {
             <li onClick={() => navigate('/registroAuto')} style={{ cursor: 'pointer' }}>Vender Vehículo</li>
           )
         ) : (
-          <li onClick={() => navigate('/productos')} style={{ cursor: 'pointer' }}>Comprar/Vender Vehículos</li>
+          <li onClick={() => navigate('/Login')} style={{ cursor: 'pointer' }}>Comprar/Vender Vehículos</li>
         )}
 
         <li>Nosotros</li>
