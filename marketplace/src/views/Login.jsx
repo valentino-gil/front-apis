@@ -19,7 +19,8 @@ const LoginView = () => {
 
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('authToken', data.token);  // Guarda el token en localStorage
+        console.log(data)
+        localStorage.setItem('authToken', data.access_token);  // Guarda el token en localStorage
         navigate('/');  // Redirige a la página de bienvenida home
       } else {
         setError('Credenciales incorrectas');

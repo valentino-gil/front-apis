@@ -70,3 +70,20 @@ h2 {
 .invoices-button:hover {
     background-color: #0056b3;
 }
+
+/* Botón de Cerrar Sesión */
+.logout-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 1vw 2vw;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 0.5vw;
+    margin-left: 1vw;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
