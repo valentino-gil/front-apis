@@ -6,7 +6,13 @@ const CarDetail = () => {
   const { id } = useParams(); // Obtener el id de la URL
   const [car, setCar] = useState(null);
 
+
   useEffect(() => {
+    window.scrollTo(80, 80);
+  }, []);
+
+  useEffect(() => {
+
     const fetchCar = async () => {
       try {
         const response = await fetch(`http://localhost:8080/api/producto/all/${id}`);
