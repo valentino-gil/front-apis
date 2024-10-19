@@ -1,0 +1,60 @@
+
+
+
+
+  car-item {
+    border: 2px solid black; /* Borde negro */
+    padding: 10px; /* Espaciado interno */
+    margin: 20px auto; /* Margen automático para centrar */
+    display: flex; /* Usar flexbox para alinear elementos */
+    flex-direction: column; /* Alinear en columna */
+    align-items: center; /* Alinear elementos al centro */
+    background-color: rgb(185, 15, 15); /* Fondo blanco */
+    transition: box-shadow 0.3s ease; /* Transición suave para el efecto de sombra */
+}
+  .car-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra al pasar el cursor */
+  }
+
+
+.marcas-list {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2vw;
+  flex-wrap: wrap;
+  width: 100%; }
+
+  .marcas-list div {
+    background-color: white;
+    padding: 1vw;
+    border-radius: 1vw;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+    flex: 1 1 auto;
+    min-width: 150px;  
+  }
+
+  
+.marcas-list p {
+  margin-top: 1vh;
+  font-size: 1.2vw;
+  font-weight: bold;
+  color: #333;
+}
+
+
+.flex-container{
+  display:flex;
+  padding: 20px;
+  justify-content: space-between;
+  margin-top: 300px; 
+
+}
+
+
+.flex-containerVehiculos{
+
+  flex-wrap:wrap;
+}
+
+
+

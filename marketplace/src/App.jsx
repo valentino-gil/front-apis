@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Profile from './views/Profile';
+import Autos from './views/Autos';
 import Home from './views/Home';
 function App() {
   return (
     <div className="App">
-      <Profile /> 
+      <Autos/> 
     </div>
   );
 }

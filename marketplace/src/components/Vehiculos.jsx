@@ -1,68 +1,80 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Importa el componente Link
+import '../estilos/Autos.css'
 
-const FeaturedCars = () => {
+
+
+const Vehiculos = () => {
   const [cars, setCars] = useState([]); // Estado para almacenar los autos
   const [loading, setLoading] = useState(true); // Estado para manejar el loading
 
-useEffect(() => {
+  useEffect(() => {
     // Función para obtener los autos del backend
     const fetchCars = async () => {
-    try {
+      try {
         // Realizar la solicitud para obtener todos los autos
         const response = await fetch("http://localhost:8080/api/producto/all");
         const allCars = await response.json();
 
         // Limitar los autos a los primeros 4
-        const limitedCars = allCars.slice(0, 4);
+        const limitedCars = allCars.slice(0, 40);
 
         // Ahora obtenemos las imágenes para cada auto
         const carsWithImages = await Promise.all(
-        limitedCars.map(async (car) => {
+          limitedCars.map(async (car) => {
             // Obtener la imagen de cada auto usando su ID
             const imageResponse = await fetch(`http://localhost:8080/api/producto/all/${car.id}/imagen`);
             const imageBlob = await imageResponse.blob();
             const imageUrl = URL.createObjectURL(imageBlob); // Convertir Blob a URL para la imagen
 
             return { ...car, image: imageUrl }; // Añadimos la URL de la imagen al auto
-        })
+          })
         );
 
         setCars(carsWithImages); // Actualizamos el estado con los autos y sus imágenes
         setLoading(false); // Desactivamos el loading
-    } catch (error) {
+      } catch (error) {
         console.error("Error fetching cars:", error);
-    }
+      }
     };
 
     fetchCars();
   }, []); // Ejecutar el efecto solo una vez cuando el componente se monta
 
   // Mostrar un mensaje de carga mientras obtenemos los datos
-if (loading) {
+  if (loading) {
     return <p>Cargando autos...</p>;
-}
+  }
+  
+  return (
+    <section className="vehiculos">
+      <h2></h2>
 
-return (
-    <section className="featured-cars">
-    <h2>Destacadods</h2>
-    <div className="car-list">
+      <div className="car-list">
         {cars.length === 0 ? (
-        <p>No hay autos disponibles</p>
+          <p>No hay autos disponibles</p>
+          
         ) : (
-        cars.map((car) => (
+          cars.map((car) => (      
+
             <div key={car.id} className="car-item">
-              {/* Usar Link para redirigir al detalle del auto */}
-            <Link to={`/car/${car.id}`}>
-                <img src={car.image} alt={car.name} />
-                <p>{car.name}</p>
-            </Link>
+              <img src={car.image} alt={car.marca} />
+              <section class="flex-containerVehiculos">
+              <div className="car-item:hover">
+              
+              <p>{car.marca} {car.modelo}</p>
+              <p style={{ fontSize: '35px' }}>${car.precio}</p>
+              <p>{car.año}</p>
+              <p>{car.km} Km</p>
+              </div>
+              </section>
             </div>
-        ))
+            
+          ))
         )}
-    </div>
+      </div>
     </section>
-);
+  );
 };
 
-export default FeaturedCars;
+export default Vehiculos;
+

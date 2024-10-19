@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Importa el componente Link
 
-const FeaturedCars = () => {
+const Marcas = () => {
   const [cars, setCars] = useState([]); // Estado para almacenar los autos
   const [loading, setLoading] = useState(true); // Estado para manejar el loading
 
@@ -14,7 +13,7 @@ useEffect(() => {
         const allCars = await response.json();
 
         // Limitar los autos a los primeros 4
-        const limitedCars = allCars.slice(0, 4);
+        const limitedCars = allCars.slice(0, 8);
 
         // Ahora obtenemos las imágenes para cada auto
         const carsWithImages = await Promise.all(
@@ -45,24 +44,28 @@ if (loading) {
 
 return (
     <section className="featured-cars">
-    <h2>Destacadods</h2>
-    <div className="car-list">
+    <h2></h2>
+    <h2>Nuestras marcas</h2>
+
+    <div className="marcas-list">
+        
+
         {cars.length === 0 ? (
-        <p>No hay autos disponibles</p>
+        <p>No hay marcas disponibles</p>
         ) : (
-        cars.map((car) => (
-            <div key={car.id} className="car-item">
-              {/* Usar Link para redirigir al detalle del auto */}
-            <Link to={`/car/${car.id}`}>
-                <img src={car.image} alt={car.name} />
-                <p>{car.name}</p>
-            </Link>
+          // Usar un Set para filtrar marcas únicas
+        [...new Set(cars.map(car => car.marca))].map((marca, index) => (
+            <div key={index} className="car-item">
+            
+            <p>{marca}</p>
             </div>
         ))
         )}
     </div>
     </section>
-);
-};
+);  
 
-export default FeaturedCars;
+}
+
+export default Marcas;
+
