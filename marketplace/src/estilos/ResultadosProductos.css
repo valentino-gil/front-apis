@@ -1,33 +1,90 @@
 .contenedor-resultados {
-    display: flex;
-  }
+  display: flex;
+  margin-top: 42vw;
+  min-height: 75vw;
+}
+
+.filtros {
   
-  .filtros {
-    width: 25%;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-right: 1px solid #ddd;
-  }
+  top: 8vw; /* Se mantendrá pegado 20px desde la parte superior al hacer scroll */
+  padding: 20px;
+  background-color: #ffffff; /* Color de fondo */
+  border-radius: 8px; /* Bordes redondeados */
+  width: 250px;
+  height: 100vh;
+  max-height: 80vh; /* Para evitar que los filtros ocupen demasiado espacio */
+  overflow-y: auto; /* Habilita scroll si los filtros ocupan más espacio del que caben en la pantalla */
+  position: fixed;  /* Esto hará que el elemento se quede fijo en la pantalla */
+  left: 0;          /* Fijado en la parte izquierda */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);  /* Sombra para darle efecto */
+}
+
+.noResultados {
+  width: 75%;
+  padding: 20px;
+  font-size: 2vw;
+  margin-left:  0vw;
+}
+.tituloResultados {
+  width: 75%;
+  padding: 20px;
+  font-size: 2vw;
+  margin-left:  0vw;
   
-  .resultados {
-    width: 75%;
-    padding: 20px;
-  }
-  
-  .lista-productos {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .producto {
-    width: 30%;
-    margin: 10px;
-    border: 1px solid #ddd;
-    padding: 15px;
-    background-color: #fff;
-  }
-  
-  .producto h3 {
-    margin: 0 0 10px;
-  }
-  
+}
+
+.resultados {
+  width: 75%;
+  padding: 20px;
+  margin-left: 18vw;
+}
+
+.imagen-producto {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 10px;
+  max-height: 10vw;
+}
+.wishlist-boton {
+  position: absolute;
+  top: 10px; /* Ajusta según la ubicación deseada */
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.wishlist-boton img {
+  width: 2vw;  /* Ajusta el tamaño del ícono SVG */
+  height: auto;
+}
+
+
+.lista-productos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.botonRestablecer {
+  margin-top: 1vw;
+  margin-left: 0.5vw;
+  cursor: pointer;
+}
+.botonAplicar {
+  margin-top: 1vw;
+  cursor: pointer;
+}
+
+.producto {
+  width: 30%;
+  margin: 10px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  background-color: #fff;
+}
+
+.producto h3 {
+  margin: 0 0 10px;
+}

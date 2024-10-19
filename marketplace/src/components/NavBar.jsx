@@ -127,7 +127,7 @@ const NavBar = () => {
                 <div onClick={() => { navigate('/login'); setShowMenu(false); }}>
                   Iniciar sesión
                 </div>
-                <div onClick={() => { navigate('/register'); setShowMenu(false); }}>
+                <div onClick={() => { navigate('/registro'); setShowMenu(false); }}>
                   Registrarse
                 </div>
               </>
