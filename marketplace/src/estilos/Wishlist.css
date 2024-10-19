@@ -1,0 +1,96 @@
+/* Aseguramos que el contenedor ocupe toda la pantalla */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+}
+
+.wishlist-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+    margin-top: 80px;
+}
+
+/* Wishlist Content Styles */
+.wishlist-content {
+    margin-top: 20px;
+    padding: 3vw;
+    width: 80vw;
+}
+
+h2 {
+    font-size: 3vw;
+}
+
+/* Wishlist Item Styles */
+.wishlist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid darkgray;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.item-details {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.precio {
+    color: black; 
+    font-size: 1em; 
+    margin: 10px 0; /* Espaciado entre los párrafos */
+    text-align: center;
+}
+
+.descripcion {
+    color: lightgrey; 
+    font-size: 1em; /* Ajusta el tamaño del texto según lo necesites */
+    margin: 10px 0; /* Espaciado entre los párrafos */
+    text-align: center;
+}
+
+/* Remove Button */
+.remove-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 0.5vw 1vw;
+    font-size: 0.75vw;
+    cursor: pointer;
+    border-radius: 0.5vw;
+    transition: background-color 0.3s;
+}
+
+.remove-button:hover {
+    background-color: #cc0000;
+}
+
+/*AddToCart Button*/
+.add-to-cart-button {
+    background-color: #4caf50; /* Color verde */
+    color: white;
+    border: none;
+    padding: 0.5vw 1vw;
+    font-size: 0.75vw;
+    cursor: pointer;
+    border-radius: 0.5vw;
+    transition: background-color 0.3s;
+    margin-right: 15px;
+    display: flex; 
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+.add-to-cart-button:hover {
+    background-color: #388e3c; /* Color verde más oscuro al pasar el mouse */
+}

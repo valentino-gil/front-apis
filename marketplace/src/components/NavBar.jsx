@@ -65,11 +65,11 @@ const NavBar = () => {
             onChange={(e) => setSearchTerm(e.target.value)} // Actualizar el valor del input
           />
         </form>
-        <Link to="/perfil"> {/* Enlace a la vista del perfil */}
-          <img src={user} alt="mi perfil" className="logoUser"  />
-        </Link>
+        <img src={user} alt="mi perfil" className="logoUser"  />
+        <Link to="/wishlist">
         <img src={heart} alt="favoritos" className="favoritos" />
-        <Link to="/carrito"> {/* Enlace a la vista del carrito */}
+        </Link>
+        <Link to="/carrito">
         <img src={carrito} alt="carrito" className="logocarrito" />
         </Link>
       </div>

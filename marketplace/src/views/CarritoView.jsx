@@ -84,7 +84,6 @@ const CarritoView = () => {
             <div className="cart-container">
                 <div className="cart-content">
                     <h2>Mi Carrito</h2>
-
                     {Items.length === 0 ? (
                         <p>No hay productos en el carrito.</p>
                     ) : (
@@ -109,7 +108,6 @@ const CarritoView = () => {
                             );
                         })
                     )}
-
                     {Items.length > 0 && (
                         <div className="cart-summary">
                             <p className="total">Sub-total: ${calcularSubtotal().toLocaleString()}</p>
