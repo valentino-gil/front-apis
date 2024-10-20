@@ -107,8 +107,12 @@ const NavBar = () => {
           />
         </form>
         <img src={user} alt="mi perfil" className="logoUser" onClick={() => setShowMenu(!showMenu)} />
+        <Link to="/wishlist">
         <img src={heart} alt="favoritos" className="favoritos" />
+        </Link>
+        <Link to="/carrito">
         <img src={carrito} alt="carrito" className="logocarrito" />
+        </Link>
         
         {/* Opciones de perfil si el menú está desplegado */}
         {showMenu && (
@@ -140,3 +144,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+

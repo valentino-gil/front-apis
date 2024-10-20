@@ -1,0 +1,89 @@
+/* Perfil Container Styles */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-content {
+    background-color: white;
+    padding: 2vw;
+    width: 60vw;
+    max-width: 800px;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+    border-radius: 0.5vw;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 2vh;
+}
+
+/* Profile Info Styles */
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.profile-icon {
+    width: 10vw;
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+}
+
+.user-details {
+    text-align: left;
+    margin-left: 2vw;
+}
+
+.user-details p {
+    font-size: 1.2em;
+    margin: 1vh 0;
+    color: #333;
+}
+
+/* Actions Styles */
+.actions {
+    margin-top: 3vh;
+}
+
+.invoices-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 1vw 2vw;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 0.5vw;
+    transition: background-color 0.3s;
+}
+
+.invoices-button:hover {
+    background-color: #0056b3;
+}
+
+/* Botón de Cerrar Sesión */
+.logout-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 1vw 2vw;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 0.5vw;
+    margin-left: 1vw;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
