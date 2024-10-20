@@ -151,3 +151,49 @@ nav li:hover{
   background-color: #1d3557;
 }
 
+/*_________________________________________________________*/
+/* Estilos para las notificaciones */
+.mensaje {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  z-index: 1000;
+  opacity: 0;
+  animation: aparecer 0.5s forwards, desaparecer 0.5s 2.5s forwards;
+}
+
+/* Notificación verde (éxito) */
+.verde {
+  background-color: #4caf50; /* Color verde */
+}
+
+/* Notificación roja (error) */
+.rojo {
+  background-color: #f44336; /* Color rojo */
+}
+
+/* Animación para hacer aparecer el mensaje */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación para hacer desaparecer el mensaje */
+@keyframes desaparecer {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

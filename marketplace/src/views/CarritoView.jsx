@@ -98,7 +98,7 @@ const CarritoView = () => {
                                     <img src={producto.Imagen} alt={`${producto.marca} ${producto.modelo} ${producto.año}`} className="item-image" />
                                     <div className="item-details">
                                         <h3>{producto.marca} {producto.modelo} {producto.año}</h3>
-                                        <p>{producto.descripcion}</p>
+                                        <p class="descripcion">{producto.descripcion}</p>
                                         <div className="quantity-control">
                                             <button onClick={() => actualizarCantidad(item.id, item.cantidad - 1)}>-</button>
                                             <span className="quantity">{item.cantidad}</span>
