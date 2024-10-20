@@ -18,7 +18,7 @@ const PerfilView = () => {
             return;
         }
 
-        axios.get('http://localhost:8080/api/usuario/', {
+        axios.get('http://localhost:8080/api/usuario/perfil', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -36,6 +36,10 @@ const PerfilView = () => {
         localStorage.removeItem('authToken'); // Eliminar el token del almacenamiento local
         navigate('/login'); // Redirigir al usuario a la página de inicio de sesión
     };
+
+    const handleRedirectFacturas = () => {
+        navigate('/misfacturas');
+    }
 
     return (
         <div>
@@ -58,7 +62,7 @@ const PerfilView = () => {
                         !error && <p>Cargando datos del usuario...</p>
                     )}
                     <div className="actions">
-                        <button className="invoices-button">Mis Facturas</button>
+                        <button className="invoices-button" onClick={handleRedirectFacturas}>Mis Facturas</button>
                         <button className="logout-button" onClick={handleLogout}>Cerrar Sesión</button>
                     </div>
                 </div>

@@ -7,6 +7,7 @@ import ResultadosSearchBar from './views/ResultadosSearchBar';
 import CarritoView from './views/CarritoView';
 import PerfilView from './views/PerfilView';
 import WishlistView from './views/WishlistView';
+import MisFacturasView from './views/MisFacturasView';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/carrito" element={<CarritoView />} /> 
       <Route path="/perfil" element={<PerfilView />} /> 
       <Route path="/wishlist" element={<WishlistView />} /> 
+      <Route path="/misfacturas" element={<MisFacturasView />} /> 
     </Routes>
   );
 }

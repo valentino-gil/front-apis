@@ -77,7 +77,7 @@ const WishlistView = () => {
                                 </div>
                                 <button className="add-to-cart-button" onClick={() => addToCart(item.id)}>
                                     Agregar al carrito
-                                    <img src={carrito} alt="carrito" className="logoCart" />
+                                    <img src={carrito} alt="carrito" className="logoTrashCan" />
                                 </button>
                                 <button className="remove-button" onClick={() => removeFromWishlist(item.id)}>
                                     Eliminar

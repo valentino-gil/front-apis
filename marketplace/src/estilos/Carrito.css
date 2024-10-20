@@ -14,8 +14,8 @@ body, html {
   display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+    background-color: #f0f2f5;
+    /*box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);*/
     margin-top: 10vw;
 }
 
@@ -35,9 +35,12 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid darkgray;
+    border: 1px solid #f0f2f5/*darkgray*/;
     padding: 10px;
     margin: 10px 0;
+    background-color: white;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
   }
   
   .item-image {

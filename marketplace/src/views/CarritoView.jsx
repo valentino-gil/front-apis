@@ -5,74 +5,77 @@ import trashcan from '../assets/trashcan.svg';
 import axios from 'axios';
 
 const CarritoView = () => {
-    const [Items, setItems] = useState([]);
+    const [items, setItems] = useState([]);
     const [productos, setProductos] = useState([]);
 
     // Obtener el token JWT del almacenamiento local
     const token = localStorage.getItem('authToken');
 
+    // Función para obtener los datos del carrito y los productos
+    const fetchCarrito = async () => {
+        try {
+            // Solicitud para obtener los productos del carrito
+            const carritoResponse = await axios.get('http://localhost:8080/api/carrito/all', {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            const carritoItems = carritoResponse.data;
+            setItems(carritoItems);
+
+            // Solicitud para obtener los detalles de los productos
+            const productosResponse = await axios.get('http://localhost:8080/api/producto/all');
+            const allProductos = productosResponse.data;
+
+            // Filtrar los productos que están en el carrito
+            const productosFiltrados = allProductos.filter(producto =>
+                carritoItems.some(item => item.producto === producto.id)
+            );
+
+            setProductos(productosFiltrados);
+        } catch (error) {
+            console.error('Error al obtener el carrito:', error);
+        }
+    };
+
     // Obtener los productos del carrito y sus detalles al cargar la vista
     useEffect(() => {
-        // Obtener los productos del carrito
-        axios.get('http://localhost:8080/api/carrito/all', {
-            headers:{
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then(response => {
-                setItems(response.data);
-                // Obtener los detalles de los productos basados en los IDs del carrito
-                return axios.get('http://localhost:8080/api/producto/all');
-            })
-            .then(response => {
-                // Filtrar solo los productos que están en el carrito
-                const productosFiltrados = response.data.filter(p =>
-                    Items.some(item => item.producto === p.id)
-                );
-                console.log(productosFiltrados)
-                setProductos(productosFiltrados);
-            })
-            .catch(error => console.error('Error al obtener los productos del carrito:', error));
-    }, []);
+        fetchCarrito();
+    }, [token]); // Dependencia de 'token' para asegurarse de que siempre se actualice correctamente
 
     // Función para actualizar la cantidad de un producto
-    const actualizarCantidad = (itemId, newQuantity) => {
+    const actualizarCantidad = async (itemId, newQuantity) => {
         if (newQuantity < 1) return; // Evitar cantidades menores a 1
-        const token = localStorage.getItem('authToken');
-        axios.put(`http://localhost:8080/api/carrito/cantidad/${newQuantity}`, 
-            { id: itemId },
-            {
-                headers:{
-                    'Authorization': `Bearer ${token}`
+        try {
+            await axios.put(`http://localhost:8080/api/carrito/cantidad/${newQuantity}`, 
+                { id: itemId },
+                {
+                    headers: { Authorization: `Bearer ${token}` }
                 }
-            }
-        )
-            .then(response => {
-                setItems(Items.map(item =>
-                    item.id === itemId ? {...item, cantidad: newQuantity } : item
-                ));
-            })
-            .catch(error => console.error('Error al actualizar la cantidad:', error));
+            );
+            setItems(prevItems =>
+                prevItems.map(item =>
+                    item.id === itemId ? { ...item, cantidad: newQuantity } : item
+                )
+            );
+        } catch (error) {
+            console.error('Error al actualizar la cantidad:', error);
+        }
     };
 
     // Función para eliminar un producto del carrito
-    const eliminarItem = (itemId) => {
-        axios.delete(`http://localhost:8080/api/carrito/borrar/${itemId}`,
-            {
-                headers:{
-                    'Authorization': `Bearer ${token}`
-                }
-            }
-        )
-            .then(() => {
-                setItems(Items.filter(item => item.id !== itemId));
-            })
-            .catch(error => console.error('Error al eliminar el producto del carrito:', error));
+    const eliminarItem = async (itemId) => {
+        try {
+            await axios.delete(`http://localhost:8080/api/carrito/borrar/${itemId}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            setItems(prevItems => prevItems.filter(item => item.id !== itemId));
+        } catch (error) {
+            console.error('Error al eliminar el producto del carrito:', error);
+        }
     };
 
     // Calcular el subtotal
     const calcularSubtotal = () => {
-        return Items.reduce((acc, item) => {
+        return items.reduce((acc, item) => {
             const producto = productos.find(p => p.id === item.producto);
             return acc + (producto ? producto.precio * item.cantidad : 0);
         }, 0);
@@ -84,15 +87,15 @@ const CarritoView = () => {
             <div className="cart-container">
                 <div className="cart-content">
                     <h2>Mi Carrito</h2>
-                    {Items.length === 0 ? (
+                    {items.length === 0 ? (
                         <p>No hay productos en el carrito.</p>
                     ) : (
-                        Items.map(item => {
+                        items.map(item => {
                             const producto = productos.find(p => p.id === item.producto);
                             if (!producto) return null;
                             return (
                                 <div key={item.id} className="cart-item">
-                                    <img src={producto.Imagen} alt={producto.marca + ' ' + producto.modelo + '' + producto.año} className="item-image" />
+                                    <img src={producto.Imagen} alt={`${producto.marca} ${producto.modelo} ${producto.año}`} className="item-image" />
                                     <div className="item-details">
                                         <h3>{producto.marca} {producto.modelo} {producto.año}</h3>
                                         <p>{producto.descripcion}</p>
@@ -108,7 +111,7 @@ const CarritoView = () => {
                             );
                         })
                     )}
-                    {Items.length > 0 && (
+                    {items.length > 0 && (
                         <div className="cart-summary">
                             <p className="total">Sub-total: ${calcularSubtotal().toLocaleString()}</p>
                             <button className="checkout-button">Finalizar compra</button>
