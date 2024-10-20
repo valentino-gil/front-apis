@@ -1,0 +1,153 @@
+/* NavBar recuadro */
+nav {
+  background-color: rgb(255, 250, 250);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5vw 8vw;
+  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+  position: fixed; /* Mantiene el nav fijo en la parte superior */
+  top: 0; /* Coloca el nav en la parte superior */
+  left: 0; /* Alinea el nav al borde izquierdo */
+  right: 0; /* Alinea el nav al borde derecho */
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav-left .logo {
+  width: 5vw; /* Ajusta el tamaño del logo */
+  height: auto;
+  margin-right: 6vw; /* Espacio entre logo y los enlaces */
+  cursor: pointer;
+  
+  
+}
+
+.nav-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Para que ocupe el espacio central */
+
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3vw;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  font-size: 2vw;
+}
+
+nav li {
+  font-size: 1.2vw;
+  display: inline-block;
+  color: #000;
+  padding: 1vw 2vw;
+  cursor: pointer;
+}
+
+nav li:hover{
+  color: #457b9d;
+
+}
+
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1vw; /* Ajusta el espacio entre íconos */
+  padding-left: 9vw;
+}
+
+.nav-right input[type="text"] {
+  padding: 0.5vw;
+  border: 0.2vw solid #000;
+  border-radius: 0.5vw;
+  background-color: #f1f1f1;
+  color: #000;
+  width: 15vw;
+  margin-left: 0vw;
+  font-size: 1.2vw;
+  margin-right: 0.5vw;
+}
+
+
+
+
+/*los logos de perfil carrito y me gusta*/
+
+.logoUser, .favoritos, .logocarrito {
+  width: 2vw; /* Ajusta el tamaño de los íconos */
+  height: auto;
+  cursor: pointer;
+}
+
+.logoUser:hover, .favoritos:hover, .logocarrito:hover {
+  transform: scale(1.2); /* Aumenta el tamaño al pasar el cursor */
+}
+
+.car-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 3vw; /* Incrementa un poco el padding */
+  border-radius: 1vw;
+  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+  max-width: 60vw; /* Limita el ancho máximo del contenedor */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  margin-top: 6vw;
+}
+
+.car-detail img {
+  width: 80%; /* Ajusta el ancho de la imagen */
+  height: auto; /* Mantiene la proporción correcta */
+  border-radius: 1vw;
+  margin-bottom: 2vw;
+  object-fit: cover; /* Asegura que la imagen ocupe todo el espacio asignado sin distorsionarse */
+}
+
+.car-detail h1 {
+  font-size: 2vw; /* Ajusta el tamaño del título */
+  color: #1d3557;
+  margin-bottom: 1vw;
+  text-align: center; /* Centra el texto */
+}
+
+.car-detail p {
+  font-size: 1.3vw; /* Reduce un poco el tamaño del texto */
+  margin-bottom: 0.8vw; /* Ajusta el margen inferior */
+  color: #333; /* Añade un color más suave para el texto */
+  text-align: center; /* Centra el texto */
+}
+
+.car-detail button {
+  background-color: #457b9d;
+  color: white;
+  padding: 1vw 2vw;
+  border: none;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  margin: 1vw;
+  font-size: 1.2vw; /* Ajusta el tamaño del texto en los botones */
+}
+
+.car-detail button:hover {
+  background-color: #1d3557;
+}
+
