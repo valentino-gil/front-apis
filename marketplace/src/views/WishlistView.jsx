@@ -51,9 +51,17 @@ const WishlistView = () => {
                 {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            if(response.data.stock < carrito.data.cantidad){
+            if (response.data.stock === 0){
+                await axios.delete(`http://localhost:8080/api/carrito/borrar/${carrito.data.id}`,{
+                    headers:{
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+                );
+            }
+            else if(response.data.stock < carrito.data.cantidad){
                 console.error("La cantidad de stock no es suficiente: ", error);
-                const cantidad = carrito.data.cantidad - 1
+                const cantidad = carrito.data.cantidad - 1;
                 await axios.put(`http://localhost:8080/api/carrito/cantidad/${cantidad}`, 
                 { id: itemId },
                 {

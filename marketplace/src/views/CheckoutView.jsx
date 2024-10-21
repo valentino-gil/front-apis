@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import '../estilos/Carrito.css';
+import '../estilos/CheckoutView.css';
 
 const CheckoutView = () => {
     const [items, setItems] = useState([]);
@@ -11,13 +11,13 @@ const CheckoutView = () => {
     const [isDisabled, setIsDisabled] = useState(false);
     const [mensaje, setMensaje] = useState('');
     const [descuento, setDescuento] = useState(0);
-    const [codigo, setCodigo] = useState('bienvenida');
+    const [codigo, setCodigo] = useState('h');
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     
     const token = localStorage.getItem('authToken');
 
-    const fetchCarrito = async () => {
+    const fetchCheckout = async () => {
         try {
             const carritoResponse = await axios.get('http://localhost:8080/api/carrito/all', {
                 headers: { Authorization: `Bearer ${token}` }
@@ -42,8 +42,8 @@ const CheckoutView = () => {
     };
 
     useEffect(() => {
-        fetchCarrito();
-    }, []); // Solo ejecutar una vez al montar
+        fetchCheckout();
+    }, [token]); // Solo ejecutar una vez al montar
 
     const calcularSubtotal = () => {
         return items.reduce((acc, item) => {
@@ -58,6 +58,9 @@ const CheckoutView = () => {
             const response = await axios.get(`http://localhost:8080/api/facturas/descuento/${inputValue}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
+            setCodigo(inputValue);
+            setDescuento(response.data);
+            setIsDisabled(true);
             // Lógica para manejar la respuesta
         } catch (error) {
             console.error('Error al verificar el descuento:', error);
@@ -66,12 +69,11 @@ const CheckoutView = () => {
     };
     
     const confirmarCompra = async () => {
-        const token = localStorage.getItem('authToken'); // Asegúrate de obtener el token aquí
         try {
             await axios.post(`http://localhost:8080/api/facturas/${codigo}`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            navigate('/'); // Redirige después de la compra
+            navigate('/comprafinalizada'); // Redirige después de la compra
         } catch (error) {
             console.error('Error en la facturación:', error);
             setMensaje('Error en la facturación');
@@ -121,7 +123,7 @@ const CheckoutView = () => {
                                     onChange={handleChange}
                                     disabled={isDisabled}
                                 />
-                                <button onClick={handleSubmit}>Aplicar</button>
+                                <button className="descuento-button" onClick={handleSubmit}>Aplicar</button>
                                 <p>{mensaje}</p>
                             </form>
                             <p className="total">Total: ${calcularSubtotal().toLocaleString()}</p>

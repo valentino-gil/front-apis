@@ -55,8 +55,12 @@ body, html {
     
     .page-control {
       display: flex;
-      align-items: center;
-    }
+      justify-content: center; /* Centra los elementos horizontalmente */
+      align-items: center; /* Centra los elementos verticalmente */
+      margin: 20px 0; /* Espaciado opcional alrededor del control */
+      gap: 10px; /* Espaciado entre los botones y el texto */
+  }
+  
     
     /* Item Total */
     .item-total {
@@ -73,6 +77,7 @@ body, html {
       height: 2vw; /* Ajusta la altura en función del ancho de la pantalla */
       font-size: 1vw; /* Ajusta el tamaño del texto de forma responsiva */
       margin: 0 1vw;
+      border: none;
       display: flex; /* Usar flexbox para centrar el contenido */
       justify-content: center; /* Centrar horizontalmente */
       align-items: center; /* Centrar verticalmente */
@@ -91,8 +96,22 @@ body, html {
       text-align: center;
     }
     
-.page-control .icon {
-    width: 20px; /* Ajusta el ancho */
-    height: 20px; /* Ajusta la altura */
-    margin-left: 5px;
-}
+    .icon {
+      width: 24px; /* Ajusta el tamaño del icono */
+      height: 24px;
+      cursor: pointer; /* Cambia el cursor cuando pasas por encima */
+      transition: transform 0.2s ease-in-out; /* Añade una transición suave para efectos */
+  
+      /* Opcional: margenes para separar del texto o botones */
+      margin: 0 8px;
+  }
+  
+  .icon:hover {
+      transform: scale(1.1); /* Aumenta el tamaño del icono al pasar el ratón por encima */
+      opacity: 0.8; /* Reduce la opacidad ligeramente para un efecto visual */
+  }
+  
+  .icon:active {
+      transform: scale(0.95); /* Reduce el tamaño del icono al hacer clic */
+  }
+  

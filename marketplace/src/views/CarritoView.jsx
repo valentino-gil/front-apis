@@ -53,7 +53,8 @@ const CarritoView = () => {
                     headers: { Authorization: `Bearer ${token}` }
                 }
             );
-            const i = items.map(item => item.id === itemId);
+            const i = items.find(item => item.id === itemId);
+            console.log(i);
             const response = await axios.get(`http://localhost:8080/api/producto/all/${i.producto}`);
             if (newQuantity <= response.data.stock){
                 setItems(prevItems =>

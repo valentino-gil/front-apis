@@ -64,15 +64,37 @@ body, html {
   .remove-button {
     display: flex;
     align-items: center; /* Alinea verticalmente */
-    justify-content: center; /* Alinea horizontalmente (opcional) */
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 0.5vw 1vw;
-    font-size: 0.75vw;
-    cursor: pointer;
-    margin: 0 auto;
+    justify-content: center; /* Alinea horizontalmente */
+    background-color: #ff4d4d; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 0.5vw 1vw; /* Espaciado */
+    font-size: 0.75vw; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    margin: 0 auto; /* Centra horizontalmente */
+    border-radius: 0.3vw; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transiciones suaves */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    font-weight: bold; /* Negrita para el texto */
 }
+
+.remove-button:hover {
+    background-color: #e63939; /* Color más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Eleva ligeramente el botón */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+}
+
+.remove-button:active {
+    background-color: #d62828; /* Color más oscuro al hacer clic */
+    transform: translateY(0); /* Vuelve a la posición original */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
+}
+
+.remove-button:focus {
+    outline: none; /* Sin contorno */
+    box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.5); /* Borde enfocado */
+}
+
   
   /* Item Total */
   .item-total {
@@ -119,15 +141,32 @@ body, html {
     cursor: pointer;
     padding: 0.85vw 1.7vw; /* Ajusta el padding en función del ancho de la pantalla */
     font-size: 1.2vw; /* Tamaño del texto responsivo */
-    display: block; /* Para permitir el uso de margen automático */
-    margin: 2vh auto; /* Centra el botón horizontalmente y da un margen vertical */
-    border-radius: 0.5vw; /* Redondeo de bordes que también se adapta al tamaño de la pantalla */
-    transition: background-color 0.3s;
+    display: block; /* Centra el botón */
+    margin: 2vh auto; /* Centra el botón horizontalmente y añade margen vertical */
+    border-radius: 0.5vw; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transición suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    font-weight: bold;
+    letter-spacing: 0.05vw;
 }
 
 .checkout-button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
+    transform: translateY(-3px); /* Eleva el botón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
 }
+
+.checkout-button:active {
+    background-color: #00408a;
+    transform: translateY(0); /* Vuelve a la posición original */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
+}
+
+.checkout-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Añadir un borde enfocado */
+}
+
   
   .logoTrashCan {
     width: 20px; /* Ajusta el ancho */

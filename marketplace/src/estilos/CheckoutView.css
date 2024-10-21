@@ -63,6 +63,61 @@ body, html {
       text-align: right;
       margin-top: 20px;
     }
+
+    .cart-summary form {
+      display: flex;
+      align-items: center; /* Centrar verticalmente */
+      gap: 1vw; /* Espacio entre el input y el botón */
+      margin-top: 2vh;
+  }
+  
+  .cart-summary form input[type="text"] {
+      padding: 0.6vw 1vw; /* Espaciado dentro del input */
+      font-size: 1.1vw; /* Tamaño del texto */
+      border: 1px solid #ccc;
+      border-radius: 1.5vw; /* Bordes redondeados */
+      width: 60%; /* Ajustar el tamaño del input */
+      outline: none;
+  }
+  
+  .cart-summary form input[type="text"]:focus {
+      border-color: #007bff; /* Cambiar el color del borde cuando se hace foco */
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .descuento-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.85vw 1.7vw; /* Ajustar el espaciado */
+    font-size: 1.2vw;
+    border-radius: 0.5vw;
+    transition: background-color 0.3s, transform 0.2s;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    font-weight: bold; /* Hacer el texto más destacado */
+    letter-spacing: 0.05vw; /* Añadir un poco de espacio entre letras */
+  }
+  
+  .descuento-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Efecto de elevar el botón al pasar el ratón */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .descuento-button:active {
+    background-color: #00408a;
+    transform: translateY(0); /* Eliminar la elevación al hacer clic */
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+}
+  
+  .cart-summary form p {
+      margin-top: 1vh; /* Separación superior para el mensaje */
+      font-size: 1vw;
+      color: red; /* O el color que prefieras para el mensaje */
+  }
+  
   
     .total{
       color:#000;
@@ -76,12 +131,29 @@ body, html {
       cursor: pointer;
       padding: 0.85vw 1.7vw; /* Ajusta el padding en función del ancho de la pantalla */
       font-size: 1.2vw; /* Tamaño del texto responsivo */
-      display: block; /* Para permitir el uso de margen automático */
-      margin: 2vh auto; /* Centra el botón horizontalmente y da un margen vertical */
-      border-radius: 0.5vw; /* Redondeo de bordes que también se adapta al tamaño de la pantalla */
-      transition: background-color 0.3s;
+      display: block; /* Centra el botón */
+      margin: 2vh auto; /* Centra el botón horizontalmente y añade margen vertical */
+      border-radius: 0.5vw; /* Bordes redondeados */
+      transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transición suave */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+      font-weight: bold;
+      letter-spacing: 0.05vw;
   }
   
   .checkout-button:hover {
-    background-color: #0056b3;
+      background-color: #0056b3;
+      transform: translateY(-3px); /* Eleva el botón */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
   }
+  
+  .checkout-button:active {
+      background-color: #00408a;
+      transform: translateY(0); /* Vuelve a la posición original */
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
+  }
+  
+  .checkout-button:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Añadir un borde enfocado */
+  }
+  

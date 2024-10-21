@@ -62,36 +62,72 @@ h2 {
 
 /* Remove Button */
 .remove-button {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 0.5vw 1vw;
-    font-size: 0.75vw;
-    cursor: pointer;
-    border-radius: 0.5vw;
-    transition: background-color 0.3s;
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    justify-content: center; /* Alinea horizontalmente */
+    background-color: #ff4d4d; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 0.5vw 1vw; /* Espaciado */
+    font-size: 0.75vw; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    margin: 0 auto; /* Centra horizontalmente */
+    border-radius: 0.3vw; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transiciones suaves */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    font-weight: bold; /* Negrita para el texto */
 }
 
 .remove-button:hover {
-    background-color: #cc0000;
+    background-color: #e63939; /* Color más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Eleva ligeramente el botón */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
 }
+
+.remove-button:active {
+    background-color: #d62828; /* Color más oscuro al hacer clic */
+    transform: translateY(0); /* Vuelve a la posición original */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
+}
+
+.remove-button:focus {
+    outline: none; /* Sin contorno */
+    box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.5); /* Borde enfocado */
+}
+
 
 /*AddToCart Button*/
 .add-to-cart-button {
     background-color: #4caf50; /* Color verde */
-    color: white;
-    border: none;
-    padding: 0.5vw 1vw;
-    font-size: 0.75vw;
-    cursor: pointer;
-    border-radius: 0.5vw;
-    transition: background-color 0.3s;
-    margin-right: 15px;
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 0.5vw 1vw; /* Espaciado */
+    font-size: 0.75vw; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    border-radius: 0.5vw; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transiciones suaves */
+    margin-right: 15px; /* Espaciado a la derecha */
     display: flex; 
     align-items: center; /* Centrar verticalmente */
     justify-content: center; /* Centrar horizontalmente */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    font-weight: bold; /* Negrita para el texto */
 }
 
 .add-to-cart-button:hover {
     background-color: #388e3c; /* Color verde más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Eleva ligeramente el botón */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
 }
+
+.add-to-cart-button:active {
+    background-color: #2e7d32; /* Color más oscuro al hacer clic */
+    transform: translateY(0); /* Vuelve a la posición original */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
+}
+
+.add-to-cart-button:focus {
+    outline: none; /* Sin contorno */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Borde enfocado */
+}
+

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import '../estilos/Carrito.css';
+import '../estilos/MisFacturas.css';
 import NavBar from '../components/NavBar';
+import axios from 'axios';
 import a_left from '../assets/arrow-left.svg';
 import a_right from '../assets/arrow-right.svg';
-import axios from 'axios';
 
 const MisFacturasView = () => {
     const [facturas, setFacturas] = useState([]);
-    const [contador, setContador] = useState([]);
+    const [contador, setContador] = useState(0);
     const [productos, setProductos] = useState([]);
     const [itemsFactura, setItems] = useState([]);
 
@@ -21,10 +21,22 @@ const MisFacturasView = () => {
             const carritoResponse = await axios.get('http://localhost:8080/api/facturas/all', {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            const facturaItems = carritoResponse.data;
-            setFacturas(facturaItems);
+            setFacturas(carritoResponse.data);
+            console.log(carritoResponse.data);
+            console.log(facturas);
+            console.log(facturas[0]);
             setContador(0);
-            () => detalles(contador);
+            if (carritoResponse.data.length > 0) {
+                const response = await axios.get(`http://localhost:8080/api/facturas/${carritoResponse.data[0].id}`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                setItems(response.data);
+            
+                const productosResponse = await axios.get('http://localhost:8080/api/producto/all/all');
+                const allProductos = productosResponse.data;
+                setProductos(allProductos.filter(producto =>
+                    response.data.some(item => item.productoId === producto.id)));
+            }
         } catch (error) {
             console.error('Error al obtener el carrito:', error);
         }
@@ -33,74 +45,66 @@ const MisFacturasView = () => {
     // Obtener los productos del carrito y sus detalles al cargar la vista
     useEffect(() => {
         fetchFacturas();
-    }, [token]); // Dependencia de 'token' para asegurarse de que siempre se actualice correctamente
+    }, [token]);
 
-    // Función para actualizar la cantidad de un producto
-    const cambiarPagina = async (newQuantity) => {
-        if (newQuantity < 1 || facturas[newQuantity] === undefined) return; // Evitar cantidades menores a 1
+    // Función para cambiar la página de la factura
+    const cambiarPagina = async (newIndex) => {
+        if (newIndex < 0 || newIndex >= facturas.length) return;
+        setContador(newIndex);
+        await fetchDetalles(newIndex);
+    };
+
+    // Función para obtener los detalles de una factura específica
+    const fetchDetalles = async (index) => {
         try {
-            setContador(newQuantity);
-            () => detalles(newQuantity);
+            console.log(facturas[index].id);
+            const response = await axios.get(`http://localhost:8080/api/facturas/${facturas[index].id}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            setItems(response.data);
+            
+            const productosResponse = await axios.get('http://localhost:8080/api/producto/all');
+            const allProductos = productosResponse.data;
+            setProductos(allProductos.filter(producto =>
+                response.data.some(item => item.productoId === producto.id)));
         } catch (error) {
-            console.error('Error al actualizar la cantidad:', error);
+            console.error('No se encontraron los detalles:', error);
         }
     };
 
-    const detalles = async (cantidad) =>{
-        try{
-            const response = await axios.put(`http://localhost:8080/api/facturas/${facturas[newQuantity].id}`, 
-                {
-                    headers: { Authorization: `Bearer ${token}` }
-                }
-            );
-            const itemsFacturas =  response.data;
-            setItems(itemsFacturas);
-            const productosResponse = await axios.get('http://localhost:8080/api/producto/all');
-            const allProductos = productosResponse.data;
-
-            setProductos(allProductos.filter(producto =>
-                itemsFacturas.some(item => item.productoId === producto.id)));
-        }catch (error){
-            console.error("No se enconntraron los detalles: ", error)
-        }
-    }
-
-    const item = (p_id) =>{
-        return itemsFactura
-            .filter(item => item.productoId === p_id)
-            .map(item => item.cantidad);
-    }
+    // Función para obtener la cantidad de un producto en la factura
+    const obtenerCantidad = (productoId) => {
+        const item = itemsFactura.find(item => item.productoId === productoId);
+        return item ? item.cantidad : 0;
+    };
 
     return (
         <div>
-            <NavBar /> {/* Agrega la barra de navegación aquí */}
+            <NavBar />
             <div className="factura-container">
                 <div className="factura-content">
                     <h2>Mis Facturas</h2>
                     <div className="page-control">
-                        <button onClick={() => cambiarPagina(contador - 1)}>
-                            <img src={a_left} alt="anterior" className="icon" />
+                        <button onClick={() => cambiarPagina(contador - 1)} disabled={contador === 0}>
+                        <img src={a_left} alt="anterior" className="icon" />
                         </button>
-                        <span className="page">Pagina {contador}</span>
-                        <button onClick={() => cambiarPagina(contador + 1)}>
-                            <img src={a_right} alt="posterior" className="icon" />
+                        <span className="page">Página {contador + 1}</span>
+                        <button onClick={() => cambiarPagina(contador + 1)} disabled={contador === facturas.length - 1}>
+                        <img src={a_right} alt="posterior" className="icon" />
                         </button>
                     </div>
                     {facturas.length === 0 ? (
-                        <p>No hay facturas aun. Haz tu primera compra!!</p>
+                        <p>No hay facturas aún. ¡Haz tu primera compra!</p>
                     ) : (
-                        productos.map(producto => {
-                            if (!producto) return null;
-                            return (
-                                <div key={producto.id} className="factura-item">
-                                    <img src={producto.Imagen} alt={`${producto.marca} ${producto.modelo} ${producto.año}`} className="item-image" />
-                                    <div className="item-details">
-                                        <h3>{item(producto.id)}x {producto.marca} {producto.modelo} {producto.año}</h3>
-                                    </div>
-                                    <p className="item-total">${(producto.precio * item(producto.id)).toLocaleString()}</p>
+                        productos.map(producto => (
+                            <div key={producto.id} className="factura-item">
+                                <img src={producto.Imagen} alt={`${producto.marca} ${producto.modelo} ${producto.año}`} className="item-image" />
+                                <div className="item-details">
+                                    <h3>{obtenerCantidad(producto.id)}x {producto.marca} {producto.modelo} {producto.año}</h3>
                                 </div>
-                            );
-                        })
+                                <p className="item-total">${(producto.precio * obtenerCantidad(producto.id)).toLocaleString()}</p>
+                            </div>
+                        ))
                     )}
                     {itemsFactura.length > 0 && (
                         <div className="factura-summary">
