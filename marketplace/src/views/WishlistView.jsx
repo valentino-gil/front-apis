@@ -44,7 +44,7 @@ const WishlistView = () => {
         try {
             // Aquí deberías implementar la lógica para agregar el producto al carrito
             // Esto es un ejemplo, necesitarás el endpoint correspondiente
-            await axios.post(`http://localhost:8080/api/carrito`, 
+            await axios.post(`http://localhost:8080/api/carrito/`, 
                 {
                     producto: productoId,
                     cantidad: 1

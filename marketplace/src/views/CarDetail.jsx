@@ -64,6 +64,24 @@ const CarDetail = () => {
     }, 3000);
   };
 
+  const comprarAhora = async (productoId) => {
+    try{
+      axios.post('http://localhost:8080/api/carrito/', 
+        { producto: productoId, cantidad: 1 }, 
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        }
+      );
+      handleChekoutRedirect;
+    }catch (error){
+      console.error("Error al seleccionar el producto: ", error)
+    }
+  }
+
+  const handleChekoutRedirect = () => {
+    navigate('/checkout'); // Redirige a la vista CheckoutView
+};
+
   if (!car) {
     return <div>Cargando detalles del auto...</div>;
   }
@@ -79,7 +97,7 @@ const CarDetail = () => {
         <p>Kilometraje: {car.km} km</p>
         <p>Año: {car.año}</p>
         <p>{car.descripcion}</p>
-        <button>Comprar ahora</button>
+        <button onClick={() => comprarAhora(car.id)}>Comprar ahora</button>
         <button onClick={() =>  agregarCarrito(car.id)}>Añadir al carrito</button>
         {mostrarMensaje && (
         <div className={`mensaje ${mensaje === "Artículo agregado correctamente al carrito" ? "verde" : "rojo"}`}>

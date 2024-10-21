@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import '../estilos/Carrito.css';
 import NavBar from '../components/NavBar';
 import trashcan from '../assets/trashcan.svg';
@@ -7,6 +8,7 @@ import axios from 'axios';
 const CarritoView = () => {
     const [items, setItems] = useState([]);
     const [productos, setProductos] = useState([]);
+    const navigate = useNavigate();
 
     // Obtener el token JWT del almacenamiento local
     const token = localStorage.getItem('authToken');
@@ -81,6 +83,10 @@ const CarritoView = () => {
         }, 0);
     };
 
+    const handleChekoutRedirect = () => {
+        navigate("/checkout"); // Redirige a la vista CheckoutView
+    };
+
     return (
         <div>
             <NavBar /> {/* Agrega la barra de navegación aquí */}
@@ -114,7 +120,7 @@ const CarritoView = () => {
                     {items.length > 0 && (
                         <div className="cart-summary">
                             <p className="total">Sub-total: ${calcularSubtotal().toLocaleString()}</p>
-                            <button className="checkout-button">Finalizar compra</button>
+                            <button className="checkout-button" onClick={handleChekoutRedirect}>Finalizar compra</button>
                         </div>
                     )}
                 </div>
