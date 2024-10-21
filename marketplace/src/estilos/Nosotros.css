@@ -1,0 +1,40 @@
+
+
+body {
+    font-family: 'Arial', sans-serif; /* Tipo de letra */
+    background-color: #f0f0f0; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold; /* Letras en negrita */
+    color: #fdfdfd; /* Color de los encabezados */
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.1em; /* Tamaño de letra moderado */
+    line-height: 1.6; /* Espaciado entre líneas */
+    margin-bottom: 15px;
+    color: white;
+}
+
+
+.presentacion {
+    width: 100vw; /* Asegúrate de que ocupe todo el ancho de la pantalla */
+    background-image: url('/src/assets/bannerNosotros.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Cambia esto a 100vh para ocupar toda la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10vh 2vw; /* Ajusta el padding según sea necesario */
+    color: white;
+    overflow: hidden; /* Esto evitará cualquier desbordamiento */
+    position: relative; /* Asegúrate de que el contenedor esté posicionado correctamente */
+    margin: 0; /* Remover margen superior */
+}
