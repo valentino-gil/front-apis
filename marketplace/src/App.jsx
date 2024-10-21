@@ -13,9 +13,11 @@ import ResultadosProductos from './views/ResultadosProductos'; // Importa la nue
 import CarDetail from './views/CarDetail';
 import CheckoutView from './views/CheckoutView';
 import CompraFinalizadaView from './views/CompraFinalizadaView';
+import Nosotros from './views/Nosotros';
 
 function App() {
   return (
+    
     <Routes>
       <Route path="/" element={<Home />} /> {/* Página principal */}
       <Route path="/login" element={<LoginView />} /> {/* Página de Login */}

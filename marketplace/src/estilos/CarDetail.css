@@ -13,7 +13,6 @@ nav {
   z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
 }
 
-
 .nav-left {
   display: flex;
   align-items: center;
@@ -25,8 +24,6 @@ nav {
   height: auto;
   margin-right: 6vw; /* Espacio entre logo y los enlaces */
   cursor: pointer;
-  
-  
 }
 
 .nav-center {
@@ -34,7 +31,6 @@ nav {
   justify-content: center;
   align-items: center;
   flex-grow: 1; /* Para que ocupe el espacio central */
-
 }
 
 nav ul {
@@ -50,6 +46,7 @@ nav a {
   color: #000;
   font-weight: bold;
   font-size: 2vw;
+  transition: color 0.3s ease; /* Suaviza la transición del color */
 }
 
 nav li {
@@ -60,11 +57,9 @@ nav li {
   cursor: pointer;
 }
 
-nav li:hover{
+nav li:hover {
   color: #457b9d;
-
 }
-
 
 .nav-right {
   display: flex;
@@ -86,11 +81,13 @@ nav li:hover{
   margin-right: 0.5vw;
 }
 
+.nav-right input[type="text"]:focus {
+  outline: none;
+  border-color: #457b9d; /* Cambia el color del borde cuando se hace clic en el campo de búsqueda */
+  box-shadow: 0 0 0.5vw rgba(69, 123, 157, 0.5); /* Añade un pequeño efecto de sombra */
+}
 
-
-
-/*los logos de perfil carrito y me gusta*/
-
+/* Los logos de perfil carrito y me gusta */
 .logoUser, .favoritos, .logocarrito {
   width: 2vw; /* Ajusta el tamaño de los íconos */
   height: auto;
@@ -98,9 +95,11 @@ nav li:hover{
 }
 
 .logoUser:hover, .favoritos:hover, .logocarrito:hover {
-  transform: scale(1.2); /* Aumenta el tamaño al pasar el cursor */
+  transform: scale(1.2);
+  transition: transform 0.2s ease-in-out; /* Suaviza la animación de hover */
 }
 
+/* Car detail */
 .car-detail {
   display: flex;
   flex-direction: column;
@@ -108,10 +107,10 @@ nav li:hover{
   background-color: white;
   padding: 3vw; /* Incrementa un poco el padding */
   border-radius: 1vw;
-  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
   max-width: 60vw; /* Limita el ancho máximo del contenedor */
   margin: 0 auto; /* Centra el contenedor horizontalmente */
-  margin-top: 6vw;
+  margin-top: 20vw;
 }
 
 .car-detail img {
@@ -120,6 +119,11 @@ nav li:hover{
   border-radius: 1vw;
   margin-bottom: 2vw;
   object-fit: cover; /* Asegura que la imagen ocupe todo el espacio asignado sin distorsionarse */
+}
+
+.car-detail img:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen */
+  transition: transform 0.3s ease; /* Suaviza la animación */
 }
 
 .car-detail h1 {
@@ -196,4 +200,46 @@ nav li:hover{
   to {
     opacity: 0;
   }
+}
+
+.car-detail button:active {
+  transform: scale(0.95); /* Da la sensación de que el botón se presiona */
+  box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.2); /* Añade un pequeño sombreado para el efecto de presionado */
+}
+
+/* Para dispositivos más pequeños */
+@media only screen and (max-width: 768px) {
+  .car-detail {
+    max-width: 90vw;
+    padding: 5vw;
+  }
+
+  .car-detail h1 {
+    font-size: 4vw;
+  }
+
+  .car-detail p {
+    font-size: 2.5vw;
+  }
+
+  .car-detail button {
+    font-size: 2vw;
+    padding: 2vw 4vw;
+  }
+
+  nav a {
+    font-size: 4vw;
+  }
+
+  nav li {
+    font-size: 3vw;
+  }
+
+  .nav-right input[type="text"] {
+    width: 40vw;
+  }
+}
+
+body {
+  padding-top: 6vw; /* Añade padding superior para evitar que la barra de navegación cubra el contenido */
 }

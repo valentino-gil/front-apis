@@ -1,0 +1,107 @@
+
+
+.nosotros {
+    width: 100vw; /* Asegúrate de que ocupe todo el ancho de la pantalla */
+    background-image: url('/src/assets/bannerNosotros.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Cambia esto a 100vh para ocupar toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10vh 2vw; /* Ajusta el padding según sea necesario */
+    color: white;
+    overflow: hidden; /* Esto evitará cualquier desbordamiento */
+    position: relative; /* Asegúrate de que el contenedor esté posicionado correctamente */
+    margin-top: 1300px; /* Remover margen superior */
+}
+
+.nosotros h1{
+    color: white; /*textos internos blanco*/
+    margin-bottom: 20px;
+    font-size: 4rem;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia */
+    border-radius: 10px;
+}
+
+.nosotros p{
+    color: white; /*textos internos blanco*/
+    font-size: 2rem;
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia */
+    border-radius: 10px;
+
+}
+
+.historia {
+    width: 100vw; /* Asegúrate de que ocupe todo el ancho de la pantalla */
+    background-image: url('/src/assets/autosventa.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Cambia esto a 100vh para ocupar toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    padding: 10vh 2vw; /* Ajusta el padding según sea necesario */
+    color: white;
+    overflow: hidden; /* Esto evitará cualquier desbordamiento */
+    position: relative; /* Asegúrate de que el contenedor esté posicionado correctamente */
+    margin: 0; /* Remover margen superior */
+}
+
+.historia p {
+    position: absolute;
+    bottom: 20px; /* Ajusta según lo necesario */
+    left: 20px;   /* Ajusta según lo necesario */
+    font-size: 1.5rem; /* Puedes ajustar el tamaño */
+    max-width: 50%; /* Limitar el ancho del texto si es necesario */
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia */
+    border-radius: 10px; /* Bordes redondeados para darle un mejor estilo */
+    color: white; /* Asegura que el texto sea blanco */
+    font-weight: 600;
+}
+
+
+.oficinas {
+    width: 100vw; /* Asegúrate de que ocupe todo el ancho de la pantalla */
+    background-image: url('/src/assets/oficinas.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Cambia esto a 100vh para ocupar toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    padding: 10vh 2vw; /* Ajusta el padding según sea necesario */
+    color: white;
+    overflow: hidden; /* Esto evitará cualquier desbordamiento */
+    position: relative; /* Asegúrate de que el contenedor esté posicionado correctamente */
+    margin: 0; /* Remover margen superior */
+}
+
+.oficinas h1 {
+    position: absolute;
+    top: 200px; /* Ajusta según lo necesario */
+    left: 40px; /* Ajusta según lo necesario */
+    color: white; /* Asegura que el texto sea blanco */
+    font-size: 3rem; /* Ajusta el tamaño del texto */
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia */
+    border-radius: 10px;
+    font-size: 4rem;
+
+}
+
+.oficinas iframe {
+    margin-left: 880px; /* Mueve el iframe hacia la izquierda */
+    /* O también puedes usar padding-left para ajustar la posición */
+}

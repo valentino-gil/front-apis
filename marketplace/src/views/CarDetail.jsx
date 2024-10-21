@@ -12,7 +12,13 @@ const CarDetail = () => {
   const token = localStorage.getItem('authToken');
   const navigate = useNavigate();
 
+
   useEffect(() => {
+    window.scrollTo(80, 80);
+  }, []);
+
+  useEffect(() => {
+
     const fetchCar = async () => {
       try {
         const response = await fetch(`http://localhost:8080/api/producto/all/${id}`);
