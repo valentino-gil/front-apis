@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import '../estilos/ResultadosProductos.css';
 import heart from '../assets/heartwhite.svg'; // icono wishlist
+import { Link } from "react-router-dom"; // Importa el componente Link
 
 const ResultadosProductos = () => {
   const filtrosIniciales = {
@@ -83,6 +84,7 @@ const ResultadosProductos = () => {
   };
 
   return (
+    
     <div className="contenedor-resultados">
       <NavBar />
       <aside className="filtros">
@@ -155,15 +157,19 @@ const ResultadosProductos = () => {
             productos.map(producto => (
               <div key={producto.id} className="producto">
               <div style={{ position: 'relative' }}>
+              <Link to={`/car/${producto.id}`}>
                <img src={producto.imagenUrl} alt={`${producto.marca} ${producto.modelo}`} className="imagen-producto" />
+               </Link>
               <button className="wishlist-boton" onClick={() => console.log('Añadir a wishlist')}>
               <img src={heart} alt="wishlist icon" />
               </button> {/* Botón corazón con SVG */}
               </div>
+              <Link to={`/car/${producto.id}`}>
   <h3>{producto.marca} {producto.modelo}</h3>
+  </Link>
   <p>Año: {producto.año}</p>
   <p>Precio: ${producto.precio}</p>
-  <p>Ubicación: {producto.ubicacion}</p>
+  <p>Kilometraje: {producto.km}</p>
 </div>
             ))
           ) : (
@@ -172,7 +178,7 @@ const ResultadosProductos = () => {
         </div>
       </main>
     </div>
-  );
+    );
 };
 
 export default ResultadosProductos;

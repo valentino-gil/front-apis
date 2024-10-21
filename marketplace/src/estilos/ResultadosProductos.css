@@ -45,6 +45,7 @@
   object-fit: cover;
   margin-bottom: 10px;
   max-height: 10vw;
+  cursor: pointer;
 }
 .wishlist-boton {
   position: absolute;
