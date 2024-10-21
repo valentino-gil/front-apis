@@ -110,7 +110,7 @@ nav li:hover {
   box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
   max-width: 60vw; /* Limita el ancho máximo del contenedor */
   margin: 0 auto; /* Centra el contenedor horizontalmente */
-  margin-top: 6vw;
+  margin-top: 20vw;
 }
 
 .car-detail img {
