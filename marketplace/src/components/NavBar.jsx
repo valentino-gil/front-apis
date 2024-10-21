@@ -94,7 +94,7 @@ const NavBar = () => {
         
         {/* Lógica condicional para mostrar diferentes opciones según el rol */}
         {isLoggedIn ? (
-          userRole === 'comprador' ? (
+          userRole === 'Comprador' ? (
             <li onClick={() => navigate('/productos')} style={{ cursor: 'pointer' }}>Comprar Vehículo</li>
           ) : (
             <li onClick={() => navigate('/registroAuto')} style={{ cursor: 'pointer' }}>Vender Vehículo</li>

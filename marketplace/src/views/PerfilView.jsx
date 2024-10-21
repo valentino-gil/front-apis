@@ -34,7 +34,7 @@ const PerfilView = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('authToken'); // Eliminar el token del almacenamiento local
-        navigate('/login'); // Redirigir al usuario a la página de inicio de sesión
+        navigate('/'); // Redirigir al home
     };
 
     const handleRedirectFacturas = () => {

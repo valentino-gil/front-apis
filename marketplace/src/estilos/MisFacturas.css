@@ -1,98 +1,118 @@
 /* Aseguramos que el contenedor ocupe toda la pantalla */
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f2f5;
-  }
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+}
 
-  .factura-container {
-    display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #f0f2f5;
-      /*box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);*/
-      margin-top: 10vw;
-  }
-  
-    /* Cart Content Styles */
-    .factura-content {
-      margin-top: 20px;
-      padding:3vw;
-      width: 80vw;
-    }
-    
-    h2 {
-      font-size: 3vw;
-    }
-    
-    /* Factura Item Styles */
-    .factura-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid #f0f2f5/*darkgray*/;
-      padding: 10px;
-      margin: 10px 0;
-      background-color: white;
-      box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-    }
-    
-    .item-image {
-      width: 150px;
-      height: auto;
-    }
-    
-    .item-details {
-      flex: 1;
-      margin-left: 20px;
-    }
-    
-    .page-control {
-      display: flex;
-      align-items: center;
-    }
-    
-    /* Item Total */
-    .item-total {
-      font-size: 1.2em;
-      color: #000;
-    }
+.factura-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  /* box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2); */
+  margin-top: 5.21vw; /* 10px */
+}
 
-    .page{
-      color: #000;
-    }
+/* Cart Content Styles */
+.factura-content {
+  margin-top: 1.04vw; /* 20px */
+  padding: 3vw;
+  width: 80vw;
+}
 
-    .page-control button {
-      width: 2vw; /* Ajusta el ancho en función del ancho de la pantalla */
-      height: 2vw; /* Ajusta la altura en función del ancho de la pantalla */
-      font-size: 1vw; /* Ajusta el tamaño del texto de forma responsiva */
-      margin: 0 1vw;
-      display: flex; /* Usar flexbox para centrar el contenido */
-      justify-content: center; /* Centrar horizontalmente */
-      align-items: center; /* Centrar verticalmente */
-      padding: 0; /* Elimina cualquier padding extra */
-  }
-  
-    
-    /* Cart Summary */
-    .factura-summary {
-      text-align: right;
-      margin-top: 20px;
-    }
-  
-    .summary{
-      color:#000;
-      text-align: center;
-    }
-    
+h2 {
+  font-size: 3vw;
+}
+
+/* Factura Item Styles */
+.factura-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0.52vw solid #f0f2f5; /* 1px */
+  padding: 0.52vw; /* 10px */
+  margin: 0.52vw 0; /* 10px 0 */
+  background-color: white;
+  box-shadow: 0 0.52vw 1vw rgba(0, 0, 0, 0.2); /* 0px 0.5px 1px */
+  border-radius: 0.52vw; /* 10px */
+}
+
+.item-image {
+  width: 7.81vw; /* 150px */
+  height: auto;
+  border: 0.1vw solid #ddd; /* 2px */
+  border-radius: 0.42vw; /* 8px */
+  box-shadow: 0 0.52vw 1.04vw rgba(0, 0, 0, 0.2); /* Sombra para un efecto de elevación */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transiciones suaves */
+}
+
+.item-details {
+  flex: 1;
+  margin-left: 1.04vw; /* 20px */
+}
+
+.page-control {
+  display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
+  margin: 1.04vw 0; /* Espaciado opcional alrededor del control */
+  gap: 0.52vw; /* Espaciado entre los botones y el texto */
+}
+
+/* Item Total */
+.item-total {
+  font-size: 1.2em;
+  color: #000;
+}
+
+.page {
+  color: #000;
+}
+
+.page-control button {
+  width: 1.04vw; /* Ajusta el ancho en función del ancho de la pantalla */
+  height: 1.04vw; /* Ajusta la altura en función del ancho de la pantalla */
+  font-size: 0.52vw; /* Ajusta el tamaño del texto de forma responsiva */
+  margin: 0 0.52vw; /* 1px a 1vw */
+  border: none;
+  display: flex; /* Usar flexbox para centrar el contenido */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  padding: 0; /* Elimina cualquier padding extra */
+}
+
+/* Cart Summary */
+.factura-summary {
+  text-align: right;
+  margin-top: 1.04vw; /* 20px */
+}
+
+.summary {
+  color: #000;
+  text-align: center;
+}
+
 .icon {
-    width: 20px; /* Ajusta el ancho */
-    height: 20px; /* Ajusta la altura */
-    margin-left: 5px;
+  width: 1.25vw; /* 24px */
+  height: 1.25vw; /* 24px */
+  cursor: pointer; /* Cambia el cursor cuando pasas por encima */
+  transition: transform 0.2s ease-in-out; /* Añade una transición suave para efectos */
+
+  /* Opcional: márgenes para separar del texto o botones */
+  margin: 0 0.42vw; /* 8px */
+}
+
+.icon:hover {
+  transform: scale(1.1); /* Aumenta el tamaño del icono al pasar el ratón por encima */
+  opacity: 0.8; /* Reduce la opacidad ligeramente para un efecto visual */
+}
+
+.icon:active {
+  transform: scale(0.95); /* Reduce el tamaño del icono al hacer clic */
 }

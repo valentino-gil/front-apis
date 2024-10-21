@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import '../estilos/Carrito.css';
-import NavBar from '../components/NavBar';
-import trashcan from '../assets/trashcan.svg';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import trashcan from '../assets/trashcan.svg';
+import NavBar from '../components/NavBar';
+import '../estilos/Carrito.css';
 
 const CarritoView = () => {
     const [items, setItems] = useState([]);
     const [productos, setProductos] = useState([]);
+    const navigate = useNavigate();
 
     // Obtener el token JWT del almacenamiento local
     const token = localStorage.getItem('authToken');
@@ -51,11 +53,19 @@ const CarritoView = () => {
                     headers: { Authorization: `Bearer ${token}` }
                 }
             );
-            setItems(prevItems =>
-                prevItems.map(item =>
-                    item.id === itemId ? { ...item, cantidad: newQuantity } : item
-                )
-            );
+            const i = items.find(item => item.id === itemId);
+            console.log(i);
+            const response = await axios.get(`http://localhost:8080/api/producto/all/${i.producto}`);
+            if (newQuantity <= response.data.stock){
+                setItems(prevItems =>
+                    prevItems.map(item =>
+                        item.id === itemId ? { ...item, cantidad: newQuantity } : item
+                    )
+                );
+            }
+            else{
+                console.error("La cantidad de stock no es suficiente: ", error);
+            }
         } catch (error) {
             console.error('Error al actualizar la cantidad:', error);
         }
@@ -81,6 +91,10 @@ const CarritoView = () => {
         }, 0);
     };
 
+    const handleChekoutRedirect = () => {
+        navigate("/checkout"); // Redirige a la vista CheckoutView
+    };
+
     return (
         <div>
             <NavBar /> {/* Agrega la barra de navegación aquí */}
@@ -95,10 +109,10 @@ const CarritoView = () => {
                             if (!producto) return null;
                             return (
                                 <div key={item.id} className="cart-item">
-                                    <img src={producto.Imagen} alt={`${producto.marca} ${producto.modelo} ${producto.año}`} className="item-image" />
+                                    <img src={producto.imagen} alt={`${producto.marca} ${producto.modelo} ${producto.año}`} className="item-image" />
                                     <div className="item-details">
                                         <h3>{producto.marca} {producto.modelo} {producto.año}</h3>
-                                        <p>{producto.descripcion}</p>
+                                        <p class="descripcion">{producto.descripcion}</p>
                                         <div className="quantity-control">
                                             <button onClick={() => actualizarCantidad(item.id, item.cantidad - 1)}>-</button>
                                             <span className="quantity">{item.cantidad}</span>
@@ -114,7 +128,7 @@ const CarritoView = () => {
                     {items.length > 0 && (
                         <div className="cart-summary">
                             <p className="total">Sub-total: ${calcularSubtotal().toLocaleString()}</p>
-                            <button className="checkout-button">Finalizar compra</button>
+                            <button className="checkout-button" onClick={handleChekoutRedirect}>Finalizar compra</button>
                         </div>
                     )}
                 </div>

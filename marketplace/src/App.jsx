@@ -11,6 +11,8 @@ import WishlistView from './views/WishlistView';
 import MisFacturasView from './views/MisFacturasView';
 import ResultadosProductos from './views/ResultadosProductos'; // Importa la nueva vista
 import CarDetail from './views/CarDetail';
+import CheckoutView from './views/CheckoutView';
+import CompraFinalizadaView from './views/CompraFinalizadaView';
 import Nosotros from './views/Nosotros';
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
       <Route path="/perfil" element={<PerfilView />} /> 
       <Route path="/wishlist" element={<WishlistView />} /> 
       <Route path="/misfacturas" element={<MisFacturasView />} /> 
+      <Route path="/checkout" element={<CheckoutView />} /> 
+      <Route path="/comprafinalizada" element={<CompraFinalizadaView />} /> 
       <Route path="/resultados" element={<ResultadosSearchBar />} /> {/* Resultados de barra de búsqueda */}
       <Route path="/registroAuto" element={<RegistroAuto />} /> {/* Registro de Auto */}
       <Route path="/productos" element={<ResultadosProductos />} /> {/* Nueva ruta para los productos */}

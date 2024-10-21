@@ -1,0 +1,169 @@
+/* Aseguramos que el contenedor ocupe toda la pantalla */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+}
+
+.cart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  margin-top: 10vw;
+}
+
+/* Cart Content Styles */
+.cart-content {
+  margin-top: 2vw; /* 20px a vw */
+  padding: 3vw;
+  width: 80vw;
+}
+
+h2 {
+  font-size: 3vw;
+}
+
+/* Cart Item Styles */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vw; /* 10px a vw */
+  margin: 1vw 0; /* 10px a vw */
+  background-color: white;
+  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+  border-radius: 1vw; /* 10px a vw */
+}
+
+.item-image {
+  width: 15vw; /* 150px a vw */
+  height: auto;
+  border: 0.2vw solid #ddd; /* 2px a vw */
+  border-radius: 0.8vw; /* 8px a vw */
+  box-shadow: 0 4vw 8vw rgba(0, 0, 0, 0.2); /* 4px y 8px a vw */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transiciones suaves */
+}
+
+.item-details {
+  flex: 1;
+  margin-left: 0.5vw; /* 20px a vw */
+}
+
+/* Item Total */
+.item-total {
+  font-size: 1.2em; /* Mantiene el tamaño, se puede ajustar si necesario */
+  margin-left: 50vw; /* 20px a vw */
+
+}
+
+/* Cart Summary */
+.cart-summary {
+  text-align: right;
+  margin-top: 2vw; /* 20px a vw */
+  font-size: 1.5vw; /* Tamaño del texto */
+
+}
+
+.cart-summary form {
+  display: flex;
+  align-items: center; /* Centrar verticalmente */
+  gap: 1vw; /* Espacio entre el input y el botón */
+  margin-top: 2vh;
+}
+
+.cart-summary form input[type="text"] {
+  padding: 0.6vw 1vw; /* Espaciado dentro del input */
+  font-size: 1.1vw; /* Tamaño del texto */
+  border: 0.1vw solid #ccc; /* 1px a vw */
+  border-radius: 1.5vw; /* 15px a vw */
+  width: 60%; /* Ajustar el tamaño del input */
+  outline: none;
+}
+
+.cart-summary form input[type="text"]:focus {
+  border-color: #007bff; /* Cambiar el color del borde cuando se hace foco */
+  box-shadow: 0 0 0.5vw rgba(0, 123, 255, 0.5); /* 5px a vw */
+}
+
+.descuento-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.85vw 1.7vw; /* Ajustar el espaciado */
+  font-size: 1.2vw;
+  border-radius: 0.5vw; /* 5px a vw */
+  transition: background-color 0.3s, transform 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 0.4vw 0.6vw rgba(0, 0, 0, 0.1), 0 0.2vw 0.4vw rgba(0, 0, 0, 0.06); /* 4px y 2px a vw */
+  font-weight: bold; /* Hacer el texto más destacado */
+  letter-spacing: 0.05vw; /* Añadir un poco de espacio entre letras */
+}
+
+.descuento-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-0.2vw); /* Efecto de elevar el botón al pasar el ratón */
+  box-shadow: 0 0.6vw 0.8vw rgba(0, 0, 0, 0.15), 0 0.3vw 0.6vw rgba(0, 0, 0, 0.1); /* 6px y 3px a vw */
+}
+
+.descuento-button:active {
+  background-color: #00408a;
+  transform: translateY(0); /* Eliminar la elevación al hacer clic */
+  box-shadow: 0 0.3vw 0.4vw rgba(0, 0, 0, 0.2); /* 3px y 2px a vw */
+}
+
+.cart-summary form p {
+  margin-top: 1vh; /* Separación superior para el mensaje */
+  font-size: 1vw; /* Tamaño del texto */
+  color: red; /* O el color que prefieras para el mensaje */
+}
+
+.total {
+  color: #000;
+  text-align: center;
+}
+
+.checkout-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.85vw 1.7vw; /* Ajusta el padding en función del ancho de la pantalla */
+  font-size: 1.2vw; /* Tamaño del texto responsivo */
+  display: block; /* Centra el botón */
+  margin: 2vh auto; /* Centra el botón horizontalmente y añade margen vertical */
+  border-radius: 0.5vw; /* 5px a vw */
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transición suave */
+  box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1); /* 4px a vw */
+  font-weight: bold;
+  letter-spacing: 0.05vw;
+}
+
+.checkout-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-0.3vw); /* Eleva el botón */
+  box-shadow: 0 0.6vw 1.2vw rgba(0, 0, 0, 0.2); /* 6px a vw */
+}
+
+.checkout-button:active {
+  background-color: #00408a;
+  transform: translateY(0); /* Vuelve a la posición original */
+  box-shadow: 0 0.3vw 0.6vw rgba(0, 0, 0, 0.3); /* 3px y 2px a vw */
+}
+
+.checkout-button:focus {
+  outline: none;
+  box-shadow: 0 0 0.3vw rgba(0, 123, 255, 0.5); /* 3px a vw */
+}
+
+.logoTrashCan {
+  width: 2vw; /* 20px a vw */
+  height: 2vw; /* 20px a vw */
+  margin-left: 0.5vw; /* 5px a vw */
+}
