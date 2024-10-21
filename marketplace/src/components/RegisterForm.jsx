@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import '../estilos/RegisterForm.css'
+import '../estilos/RegisterForm.css';
+import { useNavigate } from 'react-router-dom';  // Importar useNavigate
 
 const RegisterForm = () => {
+  const navigate = useNavigate();  // Inicializar navigate
+
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
@@ -31,7 +34,7 @@ const RegisterForm = () => {
       
       if (response.ok) {
         console.log('Registro exitoso');
-        // Aquí puedes redirigir al usuario o mostrar un mensaje de éxito
+        navigate('/');  // Redirige a la página de inicio ("/")
       } else {
         console.error('Error en el registro');
       }

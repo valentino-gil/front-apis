@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Para redirigir al usuario
 import '../estilos/Login.css'
+
+
 const LoginView = () => {
   const [mail, setMail] = useState(''); // Cambia de email a mail
   const [contraseña, setContraseña] = useState(''); // Cambia de password a contraseña
@@ -19,8 +21,9 @@ const LoginView = () => {
 
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('authToken', data.token);  // Guarda el token en localStorage
-        navigate('/Welcome');  // Redirige a la página de bienvenida
+        console.log("Datos de respuesta del servidor:", data.access_token);
+        localStorage.setItem('authToken', data.access_token);  // Guarda el token en localStorage
+        navigate('/');  // Redirige a la página de bienvenida home
       } else {
         setError('Credenciales incorrectas');
       }

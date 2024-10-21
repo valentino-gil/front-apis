@@ -1,11 +1,15 @@
-import RegisterView from './RegisterView';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
+import RegisterView from './RegisterView';
 import LoginView from './Login';
-import Welcome from './welcome';  // Asegúrate de que la ruta sea correcta
-import '../estilos/Home.css'
-import NavBar from '../components/NavBar'
-import FeaturedCars from '../components/FeaturedCars';
+import '../estilos/Home.css';
+import NavBar from '../components/NavBar';
+import FeaturedCars from '../components/FeaturedCars'; // Esto sigue mostrando lo más novedoso
+import TopSellers from '../components/TopSellers'; // Mostrando los autos más vendidos
+import MostSearchedCars from '../components/MostSearchedCars'; // Nueva sección para los autos más buscados
+import Footer from '../components/Footer';
+
 const Home = () => {
   return (
     <>
@@ -18,18 +22,13 @@ const Home = () => {
             <button>Descubre nuestros autos</button>
           </div>
         </section>
-        <FeaturedCars />
+        <FeaturedCars />  {/* Autos más novedosos */}
+        <TopSellers />    {/* Autos más vendidos */}
+        <MostSearchedCars /> {/* Nueva sección: Autos más buscados */}
       </div>
-
-      <Routes>
-        <Route path='/Login' element={<LoginView />} />
-        <Route path='/Welcome' element={<Welcome />} /> {/* Ruta para la vista Welcome */}
-        <Route path='/registro' element={<RegisterView />} />
-      </Routes>
+      <Footer />  {/* Aquí agregas el Footer */}
     </>
   );
 };
 
 export default Home;
-
-

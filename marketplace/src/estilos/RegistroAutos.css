@@ -1,0 +1,60 @@
+/* Estilos generales */
+.registro-auto-container {
+    background-color: #fff; /* Fondo blanco para el formulario */
+    padding: 4vw; /* Espaciado interno relativo al ancho de la pantalla */
+    border-radius: 1.5vw; /* Bordes redondeados */
+    box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.1); /* Sombra con unidades relativas */
+    max-width: 80vw; /* Limita el ancho máximo a un 80% del viewport */
+    width: 100%; /* Asegura que ocupe el 100% hasta el límite */
+    margin: 5vh auto; /* Margen superior para centrar mejor */
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin-top: 40vw;
+}
+
+/* Estilos para el encabezado */
+.registro-auto-container h1 {
+    font-size: 5vw; /* Tamaño de fuente relativo */
+    color: #333; /* Color del texto */
+    margin-bottom: 4vw; /* Margen inferior */
+}
+
+/* Estilos para los campos del formulario */
+form div {
+    margin-bottom: 2.5vw; /* Margen inferior entre los campos */
+}
+
+form label {
+    display: block; /* Hace que las etiquetas ocupen el 100% de ancho */
+    margin-bottom: 0.5vw; /* Margen inferior de la etiqueta */
+    font-weight: bold; /* Negrita */
+    color: #333; /* Color del texto */
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea,
+form input[type="file"] {
+    width: 100%; /* Ancho completo */
+    padding: 1.5vw; /* Espaciado interno */
+    font-size: 1.2vw; /* Tamaño de fuente relativo */
+    border: 0.2vw solid #ccc; /* Borde */
+    border-radius: 0.5vw; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluye padding y border en el cálculo de ancho */
+}
+
+/* Estilos para el botón de enviar */
+button[type="submit"] {
+    width: 100%; /* Ancho completo */
+    padding: 1.5vw; /* Espaciado interno */
+    background-color: #007BFF; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 0.5vw; /* Bordes redondeados */
+    font-size: 1.2vw; /* Tamaño de fuente relativo */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
