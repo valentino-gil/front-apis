@@ -11,7 +11,7 @@ return (
     <>
     <NavBar />
 
-    <section className="presentacion">
+    <section className="nosotros">
     <h1>Sobre Nosotros</h1>
 
     <p>Transformamos la manera en que las personas<br />compran y venden autos</p>

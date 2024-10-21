@@ -1,6 +1,6 @@
 
 
-.presentacion {
+.nosotros {
     width: 100vw; /* Asegúrate de que ocupe todo el ancho de la pantalla */
     background-image: url('/src/assets/bannerNosotros.jpg');
     background-size: cover;
@@ -18,7 +18,7 @@
     margin-top: 1300px; /* Remover margen superior */
 }
 
-.presentacion h1{
+.nosotros h1{
     color: white; /*textos internos blanco*/
     margin-bottom: 20px;
     font-size: 4rem;
@@ -26,7 +26,7 @@
     border-radius: 10px;
 }
 
-.presentacion p{
+.nosotros p{
     color: white; /*textos internos blanco*/
     font-size: 2rem;
     font-weight: 600;
