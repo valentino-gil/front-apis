@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar';
 import axios from 'axios';
 import a_left from '../assets/arrow-left.svg';
 import a_right from '../assets/arrow-right.svg';
+import FeaturedCars from '../components/FeaturedCars';
 
 const MisFacturasView = () => {
     const [facturas, setFacturas] = useState([]);
@@ -78,6 +79,8 @@ const MisFacturasView = () => {
         return item ? item.cantidad : 0;
     };
 
+    
+
     return (
         <div>
             <NavBar />
@@ -98,7 +101,7 @@ const MisFacturasView = () => {
                     ) : (
                         productos.map(producto => (
                             <div key={producto.id} className="factura-item">
-                                <img src={producto.Imagen} alt={`${producto.marca} ${producto.modelo} ${producto.año}`} className="item-image" />
+                                <img src={producto.imagen} alt={`${producto.marca} ${producto.modelo} ${producto.año}`} className="item-image" />
                                 <div className="item-details">
                                     <h3>{obtenerCantidad(producto.id)}x {producto.marca} {producto.modelo} {producto.año}</h3>
                                 </div>

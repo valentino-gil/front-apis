@@ -15,18 +15,18 @@ body, html {
     justify-content: center;
     align-items: center;
     background-color: #f0f2f5;
-    margin-top: 80px;
+    margin-top: 4.17vw; /* 80px */
 }
 
 /* Wishlist Content Styles */
 .wishlist-content {
-    margin-top: 20px;
+    margin-top: 1.04vw; /* 20px */
     padding: 3vw;
     width: 80vw;
 }
 
-h2 {
-    font-size: 3vw;
+h3 {
+    font-size: 1.5vw;
 }
 
 /* Wishlist Item Styles */
@@ -34,29 +34,29 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 10px;
+    box-shadow: 0 0.26vw 0.52vw rgba(0, 0, 0, 0.2); /* 0px 0.5px 1px */
+    padding: 0.52vw; /* 10px */
+    margin: 0.52vw 0; /* 10px 0 */
+    border-radius: 0.52vw; /* 10px */
     background-color: white;
 }
 
 .item-details {
     flex: 1;
-    margin-left: 20px;
+    margin-left: 1.04vw; /* 20px */
 }
 
 .precio {
     color: black; 
     font-size: 1em; 
-    margin: 10px 0; /* Espaciado entre los párrafos */
+    margin: 0.52vw 0; /* 10px 0 */
     text-align: center;
 }
 
 .descripcion {
     color: lightgrey; 
     font-size: 1em; /* Ajusta el tamaño del texto según lo necesites */
-    margin: 10px 0; /* Espaciado entre los párrafos */
+    margin: 0.52vw 0; /* 10px 0 */
     text-align: center;
 }
 
@@ -68,66 +68,65 @@ h2 {
     background-color: #ff4d4d; /* Color de fondo */
     color: white; /* Color del texto */
     border: none; /* Sin borde */
-    padding: 0.5vw 1vw; /* Espaciado */
-    font-size: 0.75vw; /* Tamaño del texto */
+    padding: 0.26vw 0.52vw; /* 0.5px 1px */
+    font-size: 0.70vw; /* 0.75px */
     cursor: pointer; /* Cambia el cursor al pasar el ratón */
     margin: 0 auto; /* Centra horizontalmente */
-    border-radius: 0.3vw; /* Bordes redondeados */
+    border-radius: 0.15vw; /* 0.3px */
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transiciones suaves */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    box-shadow: 0 0.26vw 0.39vw rgba(0, 0, 0, 0.1); /* Sombra ligera */
     font-weight: bold; /* Negrita para el texto */
 }
 
 .remove-button:hover {
     background-color: #e63939; /* Color más oscuro al pasar el ratón */
-    transform: translateY(-2px); /* Eleva ligeramente el botón */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+    transform: translateY(-0.13vw); /* Eleva ligeramente el botón */
+    box-shadow: 0 0.39vw 0.65vw rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
 }
 
 .remove-button:active {
     background-color: #d62828; /* Color más oscuro al hacer clic */
     transform: translateY(0); /* Vuelve a la posición original */
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
+    box-shadow: 0 0.15vw 0.26vw rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
 }
 
 .remove-button:focus {
     outline: none; /* Sin contorno */
-    box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.5); /* Borde enfocado */
+    box-shadow: 0 0 0 0.15vw rgba(255, 77, 77, 0.5); /* Borde enfocado */
 }
-
 
 /*AddToCart Button*/
 .add-to-cart-button {
     background-color: #4caf50; /* Color verde */
     color: white; /* Color del texto */
     border: none; /* Sin borde */
-    padding: 0.5vw 1vw; /* Espaciado */
-    font-size: 0.75vw; /* Tamaño del texto */
+    padding: 0.26vw 0.52vw; /* 0.5px 1px */
+    font-size: 0.70vw; /* 0.75px */
     cursor: pointer; /* Cambia el cursor al pasar el ratón */
-    border-radius: 0.5vw; /* Bordes redondeados */
+    border-radius: 0.26vw; /* 0.5px */
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transiciones suaves */
-    margin-right: 15px; /* Espaciado a la derecha */
+    margin-right: 0.78vw; /* 15px */
     display: flex; 
     align-items: center; /* Centrar verticalmente */
     justify-content: center; /* Centrar horizontalmente */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    box-shadow: 0 0.26vw 0.39vw rgba(0, 0, 0, 0.1); /* Sombra ligera */
     font-weight: bold; /* Negrita para el texto */
 }
 
 .add-to-cart-button:hover {
     background-color: #388e3c; /* Color verde más oscuro al pasar el mouse */
-    transform: translateY(-2px); /* Eleva ligeramente el botón */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+    transform: translateY(-0.13vw); /* Eleva ligeramente el botón */
+    box-shadow: 0 0.39vw 0.65vw rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
 }
 
 .add-to-cart-button:active {
     background-color: #2e7d32; /* Color más oscuro al hacer clic */
     transform: translateY(0); /* Vuelve a la posición original */
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
+    box-shadow: 0 0.15vw 0.26vw rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
 }
 
 .add-to-cart-button:focus {
     outline: none; /* Sin contorno */
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Borde enfocado */
+    box-shadow: 0 0 0 0.15vw rgba(76, 175, 80, 0.5); /* Borde enfocado */
 }
 

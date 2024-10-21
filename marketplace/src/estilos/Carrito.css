@@ -12,164 +12,169 @@ body, html {
 
 .cart-container {
   display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f2f5;
-    margin-top: 10vw;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  margin-top: 5.21vw; /* 10px */
 }
 
-  /* Cart Content Styles */
-  .cart-content {
-    margin-top: 20px;
-    padding:3vw;
-    width: 80vw;
-  }
-  
-  h2 {
-    font-size: 3vw;
-  }
-  
-  /* Cart Item Styles */
-  .cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: white;
-    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-  }
-  
-  .item-image {
-    width: 150px;
-    height: auto;
-  }
-  
-  .item-details {
-    flex: 1;
-    margin-left: 20px;
-  }
+/* Cart Content Styles */
+.cart-content {
+  margin-top: 1.04vw; /* 20px */
+  padding: 3vw;
+  width: 80vw;
+}
 
+h2 {
+  font-size: 3vw;
+}
 
-  .descripcion{
-    text-align: center;
-  }
-  
-  .quantity-control {
-    display: flex;
-    align-items: center;
-  }
-  
-  .remove-button {
-    display: flex;
-    align-items: center; /* Alinea verticalmente */
-    justify-content: center; /* Alinea horizontalmente */
-    background-color: #ff4d4d; /* Color de fondo */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    padding: 0.5vw 1vw; /* Espaciado */
-    font-size: 0.75vw; /* Tamaño del texto */
-    cursor: pointer; /* Cambia el cursor al pasar el ratón */
-    margin: 0 auto; /* Centra horizontalmente */
-    border-radius: 0.3vw; /* Bordes redondeados */
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transiciones suaves */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    font-weight: bold; /* Negrita para el texto */
+/* Cart Item Styles */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.52vw; /* 10px */
+  margin: 0.52vw 0; /* 10px 0 */
+  background-color: white;
+  box-shadow: 0 0.52vw 1vw rgba(0, 0, 0, 0.2);
+  border-radius: 0.52vw; /* 10px */
+}
+
+.item-image {
+  width: 7.81vw; /* 150px */
+  height: auto;
+  border: 0.1vw solid #ddd; /* 2px */
+  border-radius: 0.42vw; /* 8px */
+  box-shadow: 0 0.21vw 0.42vw rgba(0, 0, 0, 0.2); /* Sombra para un efecto de elevación */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transiciones suaves */
+}
+
+.item-image:hover {
+  transform: scale(1.05); /* Aumentar tamaño al pasar el mouse */
+  box-shadow: 0 0.42vw 0.84vw rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.item-details {
+  flex: 1;
+  margin-left: 1.04vw; /* 20px */
+}
+
+.descripcion {
+  text-align: center;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.remove-button {
+  display: flex;
+  align-items: center; /* Alinea verticalmente */
+  justify-content: center; /* Alinea horizontalmente */
+  background-color: #ff4d4d; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 0.26vw 0.52vw; /* Espaciado */
+  font-size: 0.39vw; /* Tamaño del texto */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  margin: 0 auto; /* Centra horizontalmente */
+  border-radius: 0.15vw; /* Bordes redondeados */
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transiciones suaves */
+  box-shadow: 0 0.21vw 0.26vw rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  font-weight: bold; /* Negrita para el texto */
 }
 
 .remove-button:hover {
-    background-color: #e63939; /* Color más oscuro al pasar el ratón */
-    transform: translateY(-2px); /* Eleva ligeramente el botón */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+  background-color: #e63939; /* Color más oscuro al pasar el ratón */
+  transform: translateY(-0.1vw); /* Eleva ligeramente el botón */
+  box-shadow: 0 0.21vw 0.42vw rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
 }
 
 .remove-button:active {
-    background-color: #d62828; /* Color más oscuro al hacer clic */
-    transform: translateY(0); /* Vuelve a la posición original */
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
+  background-color: #d62828; /* Color más oscuro al hacer clic */
+  transform: translateY(0); /* Vuelve a la posición original */
+  box-shadow: 0 0.15vw 0.26vw rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
 }
 
 .remove-button:focus {
-    outline: none; /* Sin contorno */
-    box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.5); /* Borde enfocado */
+  outline: none; /* Sin contorno */
+  box-shadow: 0 0 0 0.15vw rgba(255, 77, 77, 0.5); /* Borde enfocado */
 }
 
-  
-  /* Item Total */
-  .item-total {
-    font-size: 1.2em;
-    color: #000;
-  }
-
-  .quantity{
-    color: #000;
-  }
-
-  .quantity-control button {
-    width: 2vw; /* Ajusta el ancho en función del ancho de la pantalla */
-    height: 2vw; /* Ajusta la altura en función del ancho de la pantalla */
-    font-size: 1vw; /* Ajusta el tamaño del texto de forma responsiva */
-    margin: 0 1vw;
-    display: flex; /* Usar flexbox para centrar el contenido */
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    padding: 0; /* Elimina cualquier padding extra */
-    border-radius: 10px;
-    background-color: #000;
-    color: #f0f2f5;
-    border: none;
-    cursor: pointer;
+/* Item Total */
+.item-total {
+  font-size: 1.2em;
+  color: #000;
 }
 
-  
-  /* Cart Summary */
-  .cart-summary {
-    text-align: right;
-    margin-top: 20px;
-  }
+.quantity {
+  color: #000;
+}
 
-  .total{
-    color:#000;
-    text-align: center;
-  }
-  
-  .checkout-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 0.85vw 1.7vw; /* Ajusta el padding en función del ancho de la pantalla */
-    font-size: 1.2vw; /* Tamaño del texto responsivo */
-    display: block; /* Centra el botón */
-    margin: 2vh auto; /* Centra el botón horizontalmente y añade margen vertical */
-    border-radius: 0.5vw; /* Bordes redondeados */
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transición suave */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    font-weight: bold;
-    letter-spacing: 0.05vw;
+.quantity-control button {
+  width: 1.7vw; /* Ajusta el ancho en función del ancho de la pantalla */
+  height: 1.7vw; /* Ajusta la altura en función del ancho de la pantalla */
+  font-size: 0.9vw; /* Ajusta el tamaño del texto de forma responsiva */
+  margin: 0 0.52vw; /* 1px a 1vw */
+  display: flex; /* Usar flexbox para centrar el contenido */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  padding: 0; /* Elimina cualquier padding extra */
+  border-radius: 0.52vw; /* Bordes redondeados */
+  background-color: #000;
+  color: #f0f2f5;
+  border: none;
+  cursor: pointer;
+}
+
+/* Cart Summary */
+.cart-summary {
+  text-align: right;
+  margin-top: 1.04vw; /* 20px */
+}
+
+.total {
+  color: #000;
+  text-align: center;
+}
+
+.checkout-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.44vw 0.88vw; /* Ajusta el padding en función del ancho de la pantalla */
+  font-size: 1.2vw; /* Tamaño del texto responsivo */
+  display: block; /* Centra el botón */
+  margin: 2.08vh auto; /* Centra el botón horizontalmente y añade margen vertical */
+  border-radius: 0.26vw; /* Bordes redondeados */
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transición suave */
+  box-shadow: 0 0.21vw 0.42vw rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  font-weight: bold;
+  letter-spacing: 0.02vw; /* Ajusta el espaciado entre letras */
 }
 
 .checkout-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px); /* Eleva el botón */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+  background-color: #0056b3;
+  transform: translateY(-0.15vw); /* Eleva el botón */
+  box-shadow: 0 0.21vw 0.42vw rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
 }
 
 .checkout-button:active {
-    background-color: #00408a;
-    transform: translateY(0); /* Vuelve a la posición original */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
+  background-color: #00408a;
+  transform: translateY(0); /* Vuelve a la posición original */
+  box-shadow: 0 0.15vw 0.26vw rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
 }
 
 .checkout-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Añadir un borde enfocado */
+  outline: none;
+  box-shadow: 0 0 0 0.15vw rgba(0, 123, 255, 0.5); /* Añadir un borde enfocado */
 }
 
-  
-  .logoTrashCan {
-    width: 20px; /* Ajusta el ancho */
-    height: 20px; /* Ajusta la altura */
-    margin-left: 5px;
-  }
+.logoTrashCan {
+  width: 1.8vw; /* 20px */
+  height: 1.8vw; /* 20px */
+  margin-left: 0.26vw; /* 5px */
+}

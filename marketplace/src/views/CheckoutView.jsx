@@ -103,7 +103,7 @@ const CheckoutView = () => {
                             if (!producto) return null;
                             return (
                                 <div key={item.id} className="cart-item">
-                                    <img src={producto.Imagen} alt={`${producto.marca} ${producto.modelo} ${producto.año}`} className="item-image" />
+                                    <img src={producto.imagen} alt={`${producto.marca} ${producto.modelo} ${producto.año}`} className="item-image" />
                                     <div className="item-details">
                                         <h3>{item.cantidad}x {producto.marca} {producto.modelo} {producto.año}</h3>
                                         <p className="item-total">${(producto.precio * item.cantidad).toLocaleString()}</p>

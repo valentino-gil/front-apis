@@ -87,7 +87,7 @@ const WishlistView = () => {
                     ) : (
                         wishlistItems.map(item => (
                             <div key={item.id} className="wishlist-item">
-                                <img src={item.Imagen} alt={`${item.marca} ${item.modelo}`} className="item-image" />
+                                <img src={item.imagen} alt={`${item.marca} ${item.modelo}`} className="item-image" />
                                 <div className="item-details">
                                     <h3>{item.marca} {item.modelo} {item.año}</h3>
                                     <p className="descripcion">{item.descripcion}</p>
