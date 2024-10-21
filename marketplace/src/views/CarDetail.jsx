@@ -1,8 +1,8 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import '../estilos/CarDetail.css';
 import NavBar from '../components/NavBar';
-import axios from 'axios';
+import '../estilos/CarDetail.css';
 
 const CarDetail = () => {
   const { id } = useParams(); // Obtener el id de la URL
@@ -34,22 +34,24 @@ const CarDetail = () => {
 
   const agregarCarrito = async (productoId) => {
     try {
-      setContador(prevContador => {
-        const nuevoContador = prevContador + 1;
-
-        axios.post('http://localhost:8080/api/carrito/', 
-          { producto: productoId, cantidad: nuevoContador }, 
-          {
-            headers: { Authorization: `Bearer ${token}` }
-          }
-        ).then(response => {
-          mostrarNotificacion("Artículo agregado correctamente al carrito", "success");
-        }).catch(error => {
-          mostrarNotificacion("Error al agregar al carrito", "error");
+      const response = await axios.get(`http://localhost:8080/api/producto/all/${productoId}`);
+      axios.post('http://localhost:8080/api/carrito/',
+        { producto: productoId, cantidad: 1 },
+        {
+          headers: { Authorization: `Bearer ${token}` }
         });
-
-        return nuevoContador;
-      });
+        if(response.data.stock < carrito.data.cantidad){
+          mostrarNotificacion("La cantidad de stock no es suficiente: ", "error");
+          const cantidad = carrito.data.cantidad - 1
+          await axios.put(`http://localhost:8080/api/carrito/cantidad/${cantidad}`, 
+          { id: itemId },
+          {
+              headers: { Authorization: `Bearer ${token}` }
+          });
+      }
+      else{
+          mostrarMensaje("Producto agregado al carrito", "éxito"); // Mensaje de éxito
+      }
     } catch (error) {
       mostrarNotificacion("Error al agregar al carrito", "error");
     }

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
-import '../estilos/Carrito.css';
-import NavBar from '../components/NavBar';
-import trashcan from '../assets/trashcan.svg';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import trashcan from '../assets/trashcan.svg';
+import NavBar from '../components/NavBar';
+import '../estilos/Carrito.css';
 
 const CarritoView = () => {
     const [items, setItems] = useState([]);
@@ -53,11 +53,18 @@ const CarritoView = () => {
                     headers: { Authorization: `Bearer ${token}` }
                 }
             );
-            setItems(prevItems =>
-                prevItems.map(item =>
-                    item.id === itemId ? { ...item, cantidad: newQuantity } : item
-                )
-            );
+            const i = items.map(item => item.id === itemId);
+            const response = await axios.get(`http://localhost:8080/api/producto/all/${i.producto}`);
+            if (newQuantity <= response.data.stock){
+                setItems(prevItems =>
+                    prevItems.map(item =>
+                        item.id === itemId ? { ...item, cantidad: newQuantity } : item
+                    )
+                );
+            }
+            else{
+                console.error("La cantidad de stock no es suficiente: ", error);
+            }
         } catch (error) {
             console.error('Error al actualizar la cantidad:', error);
         }

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import NavBar from '../components/NavBar';
-import trashcan from '../assets/trashcan.svg';
+import React, { useEffect, useState } from 'react';
 import carrito from '../assets/carrito.svg';
+import trashcan from '../assets/trashcan.svg';
+import NavBar from '../components/NavBar';
 import '../estilos/Wishlist.css';
 
 const WishlistView = () => {
@@ -42,17 +42,27 @@ const WishlistView = () => {
     // Función para agregar un producto al carrito
     const addToCart = async (productoId) => {
         try {
-            // Aquí deberías implementar la lógica para agregar el producto al carrito
-            // Esto es un ejemplo, necesitarás el endpoint correspondiente
-            await axios.post(`http://localhost:8080/api/carrito/`, 
+            const response = await axios.get(`http://localhost:8080/api/producto/all/${productoId}`);
+            const carrito = await axios.post(`http://localhost:8080/api/carrito/`, 
                 {
                     producto: productoId,
                     cantidad: 1
-                }, 
+                },
                 {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            alert('Producto agregado al carrito'); // Mensaje de éxito
+            if(response.data.stock < carrito.data.cantidad){
+                console.error("La cantidad de stock no es suficiente: ", error);
+                const cantidad = carrito.data.cantidad - 1
+                await axios.put(`http://localhost:8080/api/carrito/cantidad/${cantidad}`, 
+                { id: itemId },
+                {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+            }
+            else{
+                alert('Producto agregado al carrito'); // Mensaje de éxito
+            }
         } catch (error) {
             console.error('Error al agregar el producto al carrito:', error);
         }

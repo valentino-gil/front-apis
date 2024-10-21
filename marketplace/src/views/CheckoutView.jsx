@@ -1,8 +1,8 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../estilos/Carrito.css';
 import NavBar from '../components/NavBar';
-import axios from 'axios';
+import '../estilos/Carrito.css';
 
 const CheckoutView = () => {
     const [items, setItems] = useState([]);
@@ -54,7 +54,6 @@ const CheckoutView = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = localStorage.getItem('authToken'); // Asegúrate de obtener el token aquí
         try {
             const response = await axios.get(`http://localhost:8080/api/facturas/descuento/${inputValue}`, {
                 headers: { Authorization: `Bearer ${token}` }
@@ -122,6 +121,7 @@ const CheckoutView = () => {
                                     onChange={handleChange}
                                     disabled={isDisabled}
                                 />
+                                <button onClick={handleSubmit}>Aplicar</button>
                                 <p>{mensaje}</p>
                             </form>
                             <p className="total">Total: ${calcularSubtotal().toLocaleString()}</p>
