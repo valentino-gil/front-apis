@@ -1,0 +1,128 @@
+/* Aseguramos que el contenedor ocupe toda la pantalla */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+}
+
+.cart-container {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    /*box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);*/
+    margin-top: 10vw;
+}
+
+  /* Cart Content Styles */
+  .cart-content {
+    margin-top: 20px;
+    padding:3vw;
+    width: 80vw;
+  }
+  
+  h2 {
+    font-size: 3vw;
+  }
+  
+  /* Cart Item Styles */
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #f0f2f5/*darkgray*/;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: white;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  .item-image {
+    width: 150px;
+    height: auto;
+  }
+  
+  .item-details {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  .quantity-control {
+    display: flex;
+    align-items: center;
+  }
+  
+  .remove-button {
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    justify-content: center; /* Alinea horizontalmente (opcional) */
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 0.5vw 1vw;
+    font-size: 0.75vw;
+    cursor: pointer;
+    margin: 0 auto;
+}
+  
+  /* Item Total */
+  .item-total {
+    font-size: 1.2em;
+    color: #000;
+  }
+
+  .quantity{
+    color: #000;
+  }
+
+  .quantity-control button {
+    width: 2vw; /* Ajusta el ancho en función del ancho de la pantalla */
+    height: 2vw; /* Ajusta la altura en función del ancho de la pantalla */
+    font-size: 1vw; /* Ajusta el tamaño del texto de forma responsiva */
+    margin: 0 1vw;
+    display: flex; /* Usar flexbox para centrar el contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    padding: 0; /* Elimina cualquier padding extra */
+}
+
+  
+  /* Cart Summary */
+  .cart-summary {
+    text-align: right;
+    margin-top: 20px;
+  }
+
+  .total{
+    color:#000;
+    text-align: center;
+  }
+  
+  .checkout-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.85vw 1.7vw; /* Ajusta el padding en función del ancho de la pantalla */
+    font-size: 1.2vw; /* Tamaño del texto responsivo */
+    display: block; /* Para permitir el uso de margen automático */
+    margin: 2vh auto; /* Centra el botón horizontalmente y da un margen vertical */
+    border-radius: 0.5vw; /* Redondeo de bordes que también se adapta al tamaño de la pantalla */
+    transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+  background-color: #0056b3;
+}
+  
+  .logoTrashCan {
+    width: 20px; /* Ajusta el ancho */
+    height: 20px; /* Ajusta la altura */
+    margin-left: 5px;
+  }

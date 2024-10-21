@@ -1,0 +1,98 @@
+/* Aseguramos que el contenedor ocupe toda la pantalla */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+  }
+
+  .factura-container {
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f2f5;
+      /*box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);*/
+      margin-top: 10vw;
+  }
+  
+    /* Cart Content Styles */
+    .factura-content {
+      margin-top: 20px;
+      padding:3vw;
+      width: 80vw;
+    }
+    
+    h2 {
+      font-size: 3vw;
+    }
+    
+    /* Factura Item Styles */
+    .factura-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #f0f2f5/*darkgray*/;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: white;
+      box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+    
+    .item-image {
+      width: 150px;
+      height: auto;
+    }
+    
+    .item-details {
+      flex: 1;
+      margin-left: 20px;
+    }
+    
+    .page-control {
+      display: flex;
+      align-items: center;
+    }
+    
+    /* Item Total */
+    .item-total {
+      font-size: 1.2em;
+      color: #000;
+    }
+
+    .page{
+      color: #000;
+    }
+
+    .page-control button {
+      width: 2vw; /* Ajusta el ancho en función del ancho de la pantalla */
+      height: 2vw; /* Ajusta la altura en función del ancho de la pantalla */
+      font-size: 1vw; /* Ajusta el tamaño del texto de forma responsiva */
+      margin: 0 1vw;
+      display: flex; /* Usar flexbox para centrar el contenido */
+      justify-content: center; /* Centrar horizontalmente */
+      align-items: center; /* Centrar verticalmente */
+      padding: 0; /* Elimina cualquier padding extra */
+  }
+  
+    
+    /* Cart Summary */
+    .factura-summary {
+      text-align: right;
+      margin-top: 20px;
+    }
+  
+    .summary{
+      color:#000;
+      text-align: center;
+    }
+    
+.icon {
+    width: 20px; /* Ajusta el ancho */
+    height: 20px; /* Ajusta la altura */
+    margin-left: 5px;
+}

@@ -30,15 +30,24 @@ const NavBar = () => {
           setIsLoggedIn(true);
         } else {
           console.error("Error fetching user profile");
+          handleLogout(); // Si no se puede obtener el perfil, cerrar sesión
         }
       } catch (error) {
         console.error("Error fetching user role:", error);
+        handleLogout(); // Si ocurre un error, cerrar sesión
       }
+    } else {
+      setIsLoggedIn(false); // Si no hay token, no está logueado
     }
   };
 
   useEffect(() => {
     fetchUserRole(); // Llama a la función para obtener el rol cuando el componente se monta
+
+    // Prevenir que el navegador sirva páginas en caché cuando se navega hacia atrás
+    window.onpopstate = () => {
+      fetchUserRole(); // Verificar de nuevo el estado del usuario al navegar hacia atrás
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -69,10 +78,10 @@ const NavBar = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('authToken'); // Asegurarse de remover el token correcto
     setIsLoggedIn(false);
     setUserRole(null);
-    navigate('/'); // Redirigir al home
+    navigate('/', { replace: true }); // Reemplaza la página actual en el historial
   };
 
   return (
@@ -107,8 +116,12 @@ const NavBar = () => {
           />
         </form>
         <img src={user} alt="mi perfil" className="logoUser" onClick={() => setShowMenu(!showMenu)} />
+        <Link to="/wishlist">
         <img src={heart} alt="favoritos" className="favoritos" />
+        </Link>
+        <Link to="/carrito">
         <img src={carrito} alt="carrito" className="logocarrito" />
+        </Link>
         
         {/* Opciones de perfil si el menú está desplegado */}
         {showMenu && (
@@ -140,3 +153,5 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+
