@@ -1,47 +1,130 @@
-
-
-.container {
+/* Aseguramos que el contenedor ocupe toda la pantalla */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+  }
+  
+  /* General Container Styles */
+  .container-1{
     display: flex;
+    flex-wrap: wrap; /* Ajusta para pantallas pequeñas */
     width: 100%;
-    align-items: center; /* Centra verticalmente el contenido en la fila */
-    padding: 20px; /* Espaciado interno */
-}
-
-.image-container,
-.text-container {
-    flex: 1; /* Cada uno ocupa la mitad del ancho */
-    margin: 0 10px; /* Espacio horizontal entre contenedores */
-}
-
-.image-container {
-    position: relative; /* Para poder usar efectos de pseudo-elemento */
-}
-
-.image-container img {
-    width: 100%; /* Hace que la imagen ocupe el ancho completo de su contenedor */
-    height: 300px; /* Ajusta la altura de la imagen */
-    object-fit: cover; /* Cubre el área del contenedor sin distorsionar la imagen */
-    border-radius: 8px; /* Bordes redondeados */
-    transition: transform 0.3s ease; /* Efecto de transición suave */
-}
-
-  /* Efecto de hover para la imagen */
-.image-container img:hover {
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen al pasar el mouse */
-}
-
-.text-container {
+    align-items: center;
+    padding: 5vw;
+    background-color: #fff;
+    margin: 5vw auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 1vw;
+    margin-top: 85vw;
+  }
+  .container-2 {
     display: flex;
-    flex-direction: column; /* Asegura que el texto esté en columna */
-    justify-content: center; /* Centra el texto verticalmente */
-    padding: 20px; /* Espaciado interno */
-}
+    flex-wrap: wrap; /* Ajusta para pantallas pequeñas */
+    width: 100%;
+    align-items: center;
+    padding: 5vw;
+    background-color: #fff;
+    margin: 5vw auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 1vw;
+  }
+  
+  /* Alternating background colors for sections */
+  .container-1 {
+    background-color: #f8f9fa;
+  }
+  .container-2 {
+    background-color: #e9ecef;
+  }
+  
+  /* Image and Text Containers */
+  .image-container, .text-container {
+    flex: 1;
+    margin: 1vw;
+  }
+  
+  /* Image Styling */
+  .image-container {
+    position: relative;
+  }
+  .image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 30vw;
+    object-fit: cover;
+    border-radius: 1vw;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .image-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Text Styling */
+  .text-container {
+    padding: 2vw;
+  }
+  .text-container h2 {
+    font-size: 3vw;
+    color: #333;
+    margin-bottom: 1vw;
+  }
+  .text-container p {
+    font-size: 1.5vw;
+    color: #666;
+    line-height: 1.8;
+    text-align: justify;
+  }
 
-.text-container h2 {
-    margin-bottom: 10px; /* Espacio debajo del título */
-}
-
-.text-container p {
-    line-height: 1.6; /* Mejora la legibilidad del texto */ 
-    text-align: center;
-}
+  .checkout-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.44vw 0.88vw; /* Ajusta el padding en función del ancho de la pantalla */
+    font-size: 1.2vw; /* Tamaño del texto responsivo */
+    display: block; /* Centra el botón */
+    margin: 2.08vh auto; /* Centra el botón horizontalmente y añade margen vertical */
+    border-radius: 0.26vw; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Transición suave */
+    box-shadow: 0 0.21vw 0.42vw rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    font-weight: bold;
+    letter-spacing: 0.02vw; /* Ajusta el espaciado entre letras */
+  }
+  
+  .checkout-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-0.15vw); /* Eleva el botón */
+    box-shadow: 0 0.21vw 0.42vw rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+  }
+  
+  .checkout-button:active {
+    background-color: #00408a;
+    transform: translateY(0); /* Vuelve a la posición original */
+    box-shadow: 0 0.15vw 0.26vw rgba(0, 0, 0, 0.3); /* Sombra más cercana al hacer clic */
+  }
+  
+  .checkout-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.15vw rgba(0, 123, 255, 0.5); /* Añadir un borde enfocado */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container-1, .container-2 {
+      flex-direction: column;
+      text-align: center;
+    }
+    .text-container {
+      padding: 3vw;
+    }
+    .text-container h2 {
+      font-size: 5vw;
+    }
+    .text-container p {
+      font-size: 3vw;
+    }
+  }
+  

@@ -103,8 +103,8 @@ const NavBar = () => {
           <li onClick={() => navigate('/Login')} style={{ cursor: 'pointer' }}>Comprar/Vender Vehículos</li>
         )}
 
-        <li>Nosotros</li>
-        <li>Servicios</li>
+        <li onClick={() => navigate('/nosotros')} style={{ cursor: 'pointer' }}>Nosotros</li>
+        <li onClick={() => navigate('/servicios')} style={{ cursor: 'pointer' }}>Servicios</li>
       </ul>
       <div className="nav-right">
         <form onSubmit={handleSearch}> 
