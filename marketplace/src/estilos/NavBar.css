@@ -6,75 +6,69 @@ nav {
     align-items: center;
     padding: 1.5vw 8vw;
     box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
-    position: fixed; /* Mantiene el nav fijo en la parte superior */
-    top: 0; /* Coloca el nav en la parte superior */
-    left: 0; /* Alinea el nav al borde izquierdo */
-    right: 0; /* Alinea el nav al borde derecho */
-    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
-  }
-  
-  
-  .nav-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.nav-left {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-  }
-  
-  .nav-left .logo {
-    width: 5vw; /* Ajusta el tamaño del logo */
+}
+
+.nav-left .logo {
+    width: 5vw;
     height: auto;
-    margin-right: 6vw; /* Espacio entre logo y los enlaces */
+    margin-right: 6vw;
     cursor: pointer;
-    
-    
-  }
-  
-  .nav-center {
+}
+
+.nav-center {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1; /* Para que ocupe el espacio central */
-  
-  }
-  
-  nav ul {
+    flex-grow: 1;
+}
+
+nav ul {
     list-style-type: none;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 3vw;
-  }
-  
-  nav a {
+}
+
+nav a {
     text-decoration: none;
     color: #000;
     font-weight: bold;
     font-size: 2vw;
-  }
-  
-  nav li {
+}
+
+nav li {
     font-size: 1.2vw;
     display: inline-block;
     color: #000;
     padding: 1vw 2vw;
     cursor: pointer;
-  }
-  
-  nav li:hover{
+}
+
+nav li:hover {
     color: #457b9d;
-  
-  }
-  
-  
-  .nav-right {
+}
+
+.nav-right {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 1vw; /* Ajusta el espacio entre íconos */
+    gap: 1vw;
     padding-left: 9vw;
-  }
-  
-  .nav-right input[type="text"] {
+}
+
+.nav-right input[type="text"] {
     padding: 0.5vw;
     border: 0.2vw solid #000;
     border-radius: 0.5vw;
@@ -84,19 +78,39 @@ nav {
     margin-left: 0vw;
     font-size: 1.2vw;
     margin-right: 0.5vw;
-  }
-  
-  
-  
-  
-  /*los logos de perfil carrito y me gusta*/
-  
-  .logoUser, .favoritos, .logocarrito {
-    width: 2vw; /* Ajusta el tamaño de los íconos */
+}
+
+.logoUser, .favoritos, .logocarrito {
+    width: 2vw;
     height: auto;
     cursor: pointer;
-  }
-  
-  .logoUser:hover, .favoritos:hover, .logocarrito:hover {
-    transform: scale(1.2); /* Aumenta el tamaño al pasar el cursor */
-  }
+}
+
+.logoUser:hover, .favoritos:hover, .logocarrito:hover {
+    transform: scale(1.2);
+}
+
+/* Menú desplegable */
+.menu-dropdown {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 1vw;
+}
+
+.profile-option {
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.profile-option:hover {
+    background-color: #f0f0f0;
+}
