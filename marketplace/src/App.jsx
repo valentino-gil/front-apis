@@ -15,6 +15,7 @@ import CheckoutView from './views/CheckoutView';
 import CompraFinalizadaView from './views/CompraFinalizadaView';
 import Nosotros from './views/Nosotros';
 import Servicios from './views/Servicios';
+import MisVehiculos from './views/MisVehiculos';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
       <Route path="/registroAuto" element={<RegistroAuto />} /> {/* Registro de Auto */}
       <Route path="/productos" element={<ResultadosProductos />} /> {/* Nueva ruta para los productos */}
       <Route path="/car/:id" element={<CarDetail />} /> {/* Ruta para ver el detalle de un auto */}
+      <Route path="/misVehiculos" element={<MisVehiculos />} /> 
     </Routes>
   );
 }

@@ -97,12 +97,12 @@ const NavBar = () => {
           userRole === 'Comprador' ? (
             <li onClick={() => navigate('/productos')} style={{ cursor: 'pointer' }}>Comprar Vehículo</li>
           ) : (
-            <li onClick={() => navigate('/registroAuto')} style={{ cursor: 'pointer' }}>Vender Vehículo</li>
+            <li onClick={() => setShowMenu(!showMenu)} style={{ cursor: 'pointer' }}>Vehículo</li>
           )
         ) : (
           <li onClick={() => navigate('/Login')} style={{ cursor: 'pointer' }}>Comprar/Vender Vehículos</li>
         )}
-
+  
         <li onClick={() => navigate('/nosotros')} style={{ cursor: 'pointer' }}>Nosotros</li>
         <li onClick={() => navigate('/servicios')} style={{ cursor: 'pointer' }}>Servicios</li>
       </ul>
@@ -117,10 +117,10 @@ const NavBar = () => {
         </form>
         <img src={user} alt="mi perfil" className="logoUser" onClick={() => setShowMenu(!showMenu)} />
         <Link to="/wishlist">
-        <img src={heart} alt="favoritos" className="favoritos" />
+          <img src={heart} alt="favoritos" className="favoritos" />
         </Link>
         <Link to="/carrito">
-        <img src={carrito} alt="carrito" className="logocarrito" />
+          <img src={carrito} alt="carrito" className="logocarrito" />
         </Link>
         
         {/* Opciones de perfil si el menú está desplegado */}
@@ -128,6 +128,16 @@ const NavBar = () => {
           <div className="menu-dropdown">
             {isLoggedIn ? (
               <>
+                {userRole === 'Vendedor' && (
+                  <>
+                    <div className="profile-option" onClick={() => { navigate('/misVehiculos'); setShowMenu(false); }}>
+                      Ver mis vehículos
+                    </div>
+                    <div className="profile-option" onClick={() => { navigate('/registroAuto'); setShowMenu(false); }}>
+                      Agregar vehículo
+                    </div>
+                  </>
+                )}
                 <div className="profile-option" onClick={() => { navigate('/perfil'); setShowMenu(false); }}>
                   Perfil
                 </div>
@@ -150,6 +160,7 @@ const NavBar = () => {
       </div>
     </nav>
   );
+  
 };
 
 export default NavBar;

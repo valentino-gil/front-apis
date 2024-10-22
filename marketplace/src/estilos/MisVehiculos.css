@@ -1,0 +1,65 @@
+/* Estilos solo aplicables a la clase mis-vehiculos-container */
+.mis-vehiculos-container {
+    padding: 4vw;
+    max-width: 80vw;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 1vw;
+    box-shadow: 0 0.5vw 2vw rgba(0, 0, 0, 0.1);
+  }
+  
+  .mis-vehiculos-container h1 {
+    text-align: center;
+    color: #333;
+    font-size: 4vw;
+    margin-bottom: 4vw;
+  }
+  
+  .mis-vehiculos-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .mis-vehiculos-container li {
+    background-color: #e0e0e0;
+    margin-bottom: 3vw;
+    padding: 2vw;
+    border-radius: 1vw;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+  }
+  
+  .mis-vehiculos-container h3 {
+    font-size: 3vw;
+    color: #444;
+    margin: 0 0 1vw 0;
+  }
+  
+  .mis-vehiculos-container p {
+    font-size: 2.5vw;
+    color: #666;
+  }
+  
+  .mis-vehiculos-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 1.5vw 3vw;
+    margin-right: 2vw;
+    border-radius: 1vw;
+    font-size: 2vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mis-vehiculos-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .mis-vehiculos-container button:last-child {
+    background-color: #dc3545;
+  }
+  
+  .mis-vehiculos-container button:last-child:hover {
+    background-color: #a71d2a;
+  }
+  
