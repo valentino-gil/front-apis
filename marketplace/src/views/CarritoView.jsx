@@ -109,19 +109,32 @@ const CarritoView = () => {
                             if (!producto) return null;
                             return (
                                 <div key={item.id} className="cart-item">
+                                <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', flex: '1' }}>
+                                    {/* Imagen del producto */}
                                     <img src={producto.imagen} alt={`${producto.marca} ${producto.modelo} ${producto.año}`} className="item-image" />
-                                    <div className="item-details">
+                                    
+                                    {/* Detalles del producto, incluyendo cantidad y botón de eliminar */}
+                                    <div className="item-details" style={{ marginLeft: '2vw', textAlign: 'center' }}>
                                         <h3>{producto.marca} {producto.modelo} {producto.año}</h3>
-                                        <p class="descripcion">{producto.descripcion}</p>
-                                        <div className="quantity-control">
+                                        <p className="descripcion">{producto.descripcion}</p>
+                            
+                                        {/* Control de cantidad */}
+                                        <div className="quantity-control" style={{ margin: '1vw 0' }}>
                                             <button onClick={() => actualizarCantidad(item.id, item.cantidad - 1)}>-</button>
                                             <span className="quantity">{item.cantidad}</span>
                                             <button onClick={() => actualizarCantidad(item.id, item.cantidad + 1)}>+</button>
                                         </div>
-                                        <button onClick={() => eliminarItem(item.id)} className="remove-button">Borrar <img src={trashcan} alt="borrar" className="logoTrashCan" /></button>
+                            
+                                        {/* Botón de borrar */}
+                                        <button onClick={() => eliminarItem(item.id)} className="remove-button">
+                                            Borrar <img src={trashcan} alt="borrar" className="logoTrashCan" />
+                                        </button>
                                     </div>
-                                    <p className="item-total">${(producto.precio * item.cantidad).toLocaleString()}</p>
                                 </div>
+                            
+                                {/* Precio del producto a la derecha */}
+                                <p className="item-total" style={{ marginLeft: '2vw' }}>${(producto.precio * item.cantidad).toLocaleString()}</p>
+                            </div>
                             );
                         })
                     )}
