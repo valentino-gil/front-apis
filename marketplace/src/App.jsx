@@ -14,26 +14,13 @@ import CarDetail from './views/CarDetail';
 import CheckoutView from './views/CheckoutView';
 import CompraFinalizadaView from './views/CompraFinalizadaView';
 import Nosotros from './views/Nosotros';
+import Servicios from './views/Servicios';
+
 
 function App() {
   return (
+    <Servicios/>
     
-    <Routes>
-      <Route path="/" element={<Home />} /> {/* Página principal */}
-      <Route path="/login" element={<LoginView />} /> {/* Página de Login */}
-      <Route path="/registro" element={<RegisterView />} /> {/* Página de Registro */}
-      <Route path="/resultados" element={<ResultadosSearchBar />} /> 
-      <Route path="/carrito" element={<CarritoView />} /> 
-      <Route path="/perfil" element={<PerfilView />} /> 
-      <Route path="/wishlist" element={<WishlistView />} /> 
-      <Route path="/misfacturas" element={<MisFacturasView />} /> 
-      <Route path="/checkout" element={<CheckoutView />} /> 
-      <Route path="/comprafinalizada" element={<CompraFinalizadaView />} /> 
-      <Route path="/resultados" element={<ResultadosSearchBar />} /> {/* Resultados de barra de búsqueda */}
-      <Route path="/registroAuto" element={<RegistroAuto />} /> {/* Registro de Auto */}
-      <Route path="/productos" element={<ResultadosProductos />} /> {/* Nueva ruta para los productos */}
-      <Route path="/car/:id" element={<CarDetail />} /> {/* Ruta para ver el detalle de un auto */}
-    </Routes>
   );
 }
 

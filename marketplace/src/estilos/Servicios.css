@@ -1,0 +1,47 @@
+
+
+.container {
+    display: flex;
+    width: 100%;
+    align-items: center; /* Centra verticalmente el contenido en la fila */
+    padding: 20px; /* Espaciado interno */
+}
+
+.image-container,
+.text-container {
+    flex: 1; /* Cada uno ocupa la mitad del ancho */
+    margin: 0 10px; /* Espacio horizontal entre contenedores */
+}
+
+.image-container {
+    position: relative; /* Para poder usar efectos de pseudo-elemento */
+}
+
+.image-container img {
+    width: 100%; /* Hace que la imagen ocupe el ancho completo de su contenedor */
+    height: 300px; /* Ajusta la altura de la imagen */
+    object-fit: cover; /* Cubre el área del contenedor sin distorsionar la imagen */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: transform 0.3s ease; /* Efecto de transición suave */
+}
+
+  /* Efecto de hover para la imagen */
+.image-container img:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen al pasar el mouse */
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column; /* Asegura que el texto esté en columna */
+    justify-content: center; /* Centra el texto verticalmente */
+    padding: 20px; /* Espaciado interno */
+}
+
+.text-container h2 {
+    margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+.text-container p {
+    line-height: 1.6; /* Mejora la legibilidad del texto */ 
+    text-align: center;
+}
