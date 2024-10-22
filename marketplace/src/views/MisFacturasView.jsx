@@ -64,7 +64,7 @@ const MisFacturasView = () => {
             });
             setItems(response.data);
             
-            const productosResponse = await axios.get('http://localhost:8080/api/producto/all');
+            const productosResponse = await axios.get('http://localhost:8080/api/producto/all/all');
             const allProductos = productosResponse.data;
             setProductos(allProductos.filter(producto =>
                 response.data.some(item => item.productoId === producto.id)));
