@@ -337,4 +337,34 @@ nav li:hover{
   margin-top: 0.5vw;
 }
 
+.submenu {
+  display: none; /* El submenú estará oculto por defecto */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  top: 40px; /* Ajusta esta distancia según el tamaño del NavBar */
+  left: 0;
+}
+
+.nav-center li:hover .submenu {
+  display: block; /* Muestra el submenú cuando el elemento padre es hovered */
+}
+
+.submenu li {
+  padding: 10px;
+  cursor: pointer;
+  width: 150px; /* Ajusta el tamaño según tus necesidades */
+  border-bottom: 1px solid #ddd;
+}
+
+.submenu li:hover {
+  background-color: #f0f0f0;
+}
+
+
+
 
