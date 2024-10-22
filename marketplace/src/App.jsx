@@ -14,10 +14,11 @@ import CarDetail from './views/CarDetail';
 import CheckoutView from './views/CheckoutView';
 import CompraFinalizadaView from './views/CompraFinalizadaView';
 import Nosotros from './views/Nosotros';
+import Servicios from './views/Servicios';
+
 
 function App() {
   return (
-    
     <Routes>
       <Route path="/" element={<Home />} /> {/* Página principal */}
       <Route path="/login" element={<LoginView />} /> {/* Página de Login */}
@@ -28,6 +29,8 @@ function App() {
       <Route path="/wishlist" element={<WishlistView />} /> 
       <Route path="/misfacturas" element={<MisFacturasView />} /> 
       <Route path="/checkout" element={<CheckoutView />} /> 
+      <Route path="/nosotros" element={<Nosotros />} /> 
+      <Route path="/servicios" element={<Servicios />} /> 
       <Route path="/comprafinalizada" element={<CompraFinalizadaView />} /> 
       <Route path="/resultados" element={<ResultadosSearchBar />} /> {/* Resultados de barra de búsqueda */}
       <Route path="/registroAuto" element={<RegistroAuto />} /> {/* Registro de Auto */}
