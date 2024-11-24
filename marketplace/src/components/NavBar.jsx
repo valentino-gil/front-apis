@@ -47,11 +47,24 @@ const NavBar = () => {
   }, []);
 
   // Función para manejar la búsqueda
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    // Lógica para realizar la búsqueda con el término `searchTerm`
-    console.log("Buscando:", searchTerm);
+    
+    try {
+      const response = await fetch(`http://localhost:8080/api/producto/all/buscar?query=${searchTerm}`);
+      
+      if (response.ok) {
+        const resultados = await response.json();
+        // Redirigir a una página que muestre los resultados, pasando los datos
+        navigate('/resultados', { state: { productos: resultados } });
+      } else {
+        console.error('Error al buscar autos');
+      }
+    } catch (error) {
+      console.error('Error al realizar la búsqueda:', error);
+    }
   };
+  
 
   // Función para manejar el logout
   const handleLogout = () => {

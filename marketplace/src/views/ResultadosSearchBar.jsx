@@ -5,7 +5,7 @@ import '../estilos/ResultadosSearchBar.css';
 
 const ResultadosSearchBar = () => {
   const location = useLocation();
-  const autos = location.state?.autos || [];
+  const autos = location.state?.productos || [];
 
   return (
     <div className="body">
