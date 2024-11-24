@@ -38,6 +38,25 @@ const WishlistView = () => {
             console.error('Error al eliminar el producto de la lista de deseos:', error);
         }
     };
+// Función para agregar un producto a la wishlist
+const addToWishlist = async (productoId) => {
+    try {
+        const response = await axios.post(
+            `http://localhost:8080/api/wishlist/${productoId}`, // Usamos el ID del producto en la URL
+            {}, // El cuerpo puede estar vacío si no necesitas más datos
+            {
+                headers: { Authorization: `Bearer ${token}` }
+            }
+        );
+        
+        // Agregar el producto recién agregado a la wishlist al estado local
+        setWishlistItems(prevItems => [...prevItems, response.data]); 
+        console.log('Producto agregado a la wishlist:', response.data);
+    } catch (error) {
+        console.error('Error al agregar el producto a la wishlist:', error);
+    }
+};
+
 
     // Función para agregar un producto al carrito
     const addToCart = async (productoId) => {

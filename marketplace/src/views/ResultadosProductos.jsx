@@ -3,8 +3,10 @@ import axios from 'axios';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import '../estilos/ResultadosProductos.css';
-import heart from '../assets/heartwhite.svg'; // icono wishlist
+import heart from '../assets/heartwhite.svg'; // Icono de corazón vacío
+import heartblue from '../assets/heartblue.svg'; // Icono de corazón lleno
 import { Link } from "react-router-dom"; // Importa el componente Link
+
 
 const ResultadosProductos = () => {
   const filtrosIniciales = {
@@ -22,6 +24,7 @@ const ResultadosProductos = () => {
     marcas: [],
     modelos: [],
   });
+  const [favoritos, setFavoritos] = useState([]); // Estado para manejar favoritos
 
   useEffect(() => {
     obtenerProductos();
@@ -40,6 +43,8 @@ const ResultadosProductos = () => {
       console.error('Error al obtener productos:', error);
     }
   };
+  
+
 
   const obtenerCategorias = async () => {
     try {
@@ -83,11 +88,23 @@ const ResultadosProductos = () => {
     obtenerProductos();
   };
 
+  const toggleFavorito = (productoId) => {
+    setFavoritos(prevFavoritos => {
+      if (prevFavoritos.includes(productoId)) {
+        // Eliminar de favoritos
+        return prevFavoritos.filter(id => id !== productoId);
+      } else {
+        // Agregar a favoritos
+        return [...prevFavoritos, productoId];
+      }
+    });
+  };
+
   return (
-    
     <div className="contenedor-resultados">
       <NavBar />
       <aside className="filtros">
+        {/* Filtros */}
         <h2>Filtrar</h2>
         <div className="filtro-año">
           <label>Año: {filtros.añoMin} - {filtros.añoMax}</label>
@@ -156,21 +173,28 @@ const ResultadosProductos = () => {
           {productos.length > 0 ? (
             productos.map(producto => (
               <div key={producto.id} className="producto">
-              <div style={{ position: 'relative' }}>
-              <Link to={`/car/${producto.id}`}>
-               <img src={producto.imagenUrl} alt={`${producto.marca} ${producto.modelo}`} className="imagen-producto" />
-               </Link>
-              <button className="wishlist-boton" onClick={() => console.log('Añadir a wishlist')}>
-              <img src={heart} alt="wishlist icon" />
-              </button> {/* Botón corazón con SVG */}
+                <div style={{ position: 'relative' }}>
+                  <Link to={`/car/${producto.id}`}>
+                    <img src={producto.imagenUrl} alt={`${producto.marca} ${producto.modelo}`} className="imagen-producto" />
+                  </Link>
+                  <button
+                    className="wishlist-boton"
+                    onClick={() => toggleFavorito(producto.id)}
+                  >
+                    <img
+                      src={favoritos.includes(producto.id) ? heartblue : heart}
+                      alt="wishlist icon"
+                    />
+                  </button>
+                </div>
+                <Link to={`/car/${producto.id}`}>
+                  <h3>{producto.marca} {producto.modelo}</h3>
+                </Link>
+                <p>Año: {producto.año}</p>
+                <p>Precio: ${producto.precio}</p>
+                <p>Kilometraje: {producto.km}</p>
+                <p>Stock: {producto.stock}</p>
               </div>
-              <Link to={`/car/${producto.id}`}>
-  <h3>{producto.marca} {producto.modelo}</h3>
-  </Link>
-  <p>Año: {producto.año}</p>
-  <p>Precio: ${producto.precio}</p>
-  <p>Kilometraje: {producto.km}</p>
-</div>
             ))
           ) : (
             <p className='noResultados'>Lo sentimos, no encontramos resultados para tu búsqueda</p>
@@ -178,7 +202,7 @@ const ResultadosProductos = () => {
         </div>
       </main>
     </div>
-    );
+  );
 };
 
 export default ResultadosProductos;

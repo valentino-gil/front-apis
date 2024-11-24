@@ -177,7 +177,7 @@ nav li:hover {
 
 /* Notificación roja (error) */
 .rojo {
-  background-color: #f44336; /* Color rojo */
+  background-color: #4caf50; /* Color rojo */
 }
 
 /* Animación para hacer aparecer el mensaje */
