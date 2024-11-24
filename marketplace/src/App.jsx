@@ -17,6 +17,7 @@ import Nosotros from './views/Nosotros';
 import Servicios from './views/Servicios';
 import MisVehiculos from './views/MisVehiculos';
 import ActualizarAuto from './views/ActualizarAuto';
+import QuickCheckoutView from './views/QuickCheckoutView';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
       <Route path="/car/:id" element={<CarDetail />} /> {/* Ruta para ver el detalle de un auto */}
       <Route path="/misVehiculos" element={<MisVehiculos />} /> 
       <Route path="/actualizarAuto/:id" element={<ActualizarAuto />} />
+      <Route path="/checkout/:id" element={<QuickCheckoutView />} />
     </Routes>
   );
 }

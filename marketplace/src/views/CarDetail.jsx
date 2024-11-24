@@ -86,20 +86,8 @@ const CarDetail = () => {
 
   const comprarAhora = async (productoId) => {
     try {
-      const response = await fetch('http://localhost:8080/api/carrito/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({ producto: productoId, cantidad: 1 })
-      });
-
-      if (!response.ok) {
-        throw new Error(`Error adding to cart: ${response.status} ${response.statusText}`);
-      }
-
-      handleCheckoutRedirect();
+      navigate(`/checkout/${productoId}`);
+      
     } catch (error) {
       console.error("Error al seleccionar el producto:", error);
     }
