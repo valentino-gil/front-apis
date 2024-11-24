@@ -1,55 +1,127 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9; /* Color de fondo general */
+}
+
 .contenedor-resultados {
   display: flex;
-  margin-top: 42vw;
-  min-height: 75vw;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que cubra toda la pantalla */
+  max-height: 2.5rem;
+  margin-top: 30vh;
+}
+
+.NavBar {
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px;
+  text-align: center;
 }
 
 .filtros {
-  
-  top: 8vw; /* Se mantendrá pegado 20px desde la parte superior al hacer scroll */
+  position: fixed;
+  top: 8vw;
+  left: 0;
   padding: 20px;
-  background-color: #ffffff; /* Color de fondo */
-  border-radius: 8px; /* Bordes redondeados */
+  background-color: #ffffff;
+  border-radius: 8px;
   width: 250px;
-  height: 100vh;
-  max-height: 80vh; /* Para evitar que los filtros ocupen demasiado espacio */
-  overflow-y: auto; /* Habilita scroll si los filtros ocupan más espacio del que caben en la pantalla */
-  position: fixed;  /* Esto hará que el elemento se quede fijo en la pantalla */
-  left: 0;          /* Fijado en la parte izquierda */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);  /* Sombra para darle efecto */
+  height: calc(100vh - 8vw); /* Asegura que no sobrepase la pantalla */
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.noResultados {
-  width: 75%;
-  padding: 20px;
-  font-size: 2vw;
-  margin-left:  0vw;
+.filtros h2 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
 }
-.tituloResultados {
-  width: 75%;
-  padding: 20px;
-  font-size: 2vw;
-  margin-left:  0vw;
-  
+
+.filtro-año,
+.filtro-precio {
+  margin-bottom: 20px;
+}
+
+.filtro-año label,
+.filtro-precio label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: 5px 0;
+}
+
+select {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.botonAplicar,
+.botonRestablecer {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #2c3e50;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
+
+.botonAplicar:hover,
+.botonRestablecer:hover {
+  background-color: #1a252f;
 }
 
 .resultados {
-  width: 75%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 270px; /* Deja espacio para los filtros */
   padding: 20px;
-  margin-left: 18vw;
+}
+
+.lista-productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.producto {
+  width: calc(30% - 20px);
+  border: 1px solid #ddd;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .imagen-producto {
   width: 100%;
   height: auto;
   object-fit: cover;
-  margin-bottom: 10px;
   max-height: 10vw;
+  border-radius: 8px;
   cursor: pointer;
 }
+
 .wishlist-boton {
   position: absolute;
-  top: 10px; /* Ajusta según la ubicación deseada */
+  top: 10px;
   right: 10px;
   background-color: transparent;
   border: none;
@@ -57,35 +129,41 @@
 }
 
 .wishlist-boton img {
-  width: 2vw;  /* Ajusta el tamaño del ícono SVG */
+  width: 2vw;
   height: auto;
 }
 
-
-.lista-productos {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-
-.botonRestablecer {
-  margin-top: 1vw;
-  margin-left: 0.5vw;
-  cursor: pointer;
-}
-.botonAplicar {
-  margin-top: 1vw;
-  cursor: pointer;
-}
-
-.producto {
-  width: 30%;
-  margin: 10px;
-  border: 1px solid #ddd;
-  padding: 15px;
-  background-color: #fff;
-}
-
 .producto h3 {
-  margin: 0 0 10px;
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.producto p {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+.noResultados {
+  font-size: 1.2em;
+  color: #999;
+  text-align: center;
+}
+
+footer {
+  width: 100%;
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+}
+
+footer a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  color: white;
 }

@@ -14,8 +14,8 @@ const ResultadosProductos = () => {
     añoMin: 2000,
     precioMax: 1000000,
     precioMin: 0,
-    marcas: [],
-    modelos: [],
+    marca: "",
+    modelo: "",
   };
 
   const [productos, setProductos] = useState([]);
@@ -43,17 +43,10 @@ const ResultadosProductos = () => {
       console.error('Error al obtener productos:', error);
     }
   };
-  
-
 
   const obtenerCategorias = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/producto/all/filtrar', {
-        params: {
-          añoMax: filtros.añoMax,
-          añoMin: filtros.añoMin,
-        },
-      });
+      const response = await axios.get('http://localhost:8080/api/producto/all');
       const productos = response.data;
       const marcas = [...new Set(productos.map(p => p.marca))];
       const modelos = [...new Set(productos.map(p => p.modelo))];
@@ -88,16 +81,28 @@ const ResultadosProductos = () => {
     obtenerProductos();
   };
 
+  const agregarAWishlist = async (productoId) => {
+    const token = localStorage.getItem('authToken'); // Si necesitas autenticación
+
+    try {
+      await axios.post(`http://localhost:8080/api/wishlist/${productoId}`, {}, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      setFavoritos(prevFavoritos => [...prevFavoritos, productoId]); // Actualiza el estado local
+      console.log(`Producto ${productoId} añadido a la wishlist.`);
+    } catch (error) {
+      console.error('Error al añadir a la wishlist:', error.response?.data || error.message);
+    }
+  };
+
   const toggleFavorito = (productoId) => {
-    setFavoritos(prevFavoritos => {
-      if (prevFavoritos.includes(productoId)) {
-        // Eliminar de favoritos
-        return prevFavoritos.filter(id => id !== productoId);
-      } else {
-        // Agregar a favoritos
-        return [...prevFavoritos, productoId];
-      }
-    });
+    if (favoritos.includes(productoId)) {
+      setFavoritos(prevFavoritos => prevFavoritos.filter(id => id !== productoId));
+    } else {
+      agregarAWishlist(productoId);
+    }
   };
 
   return (
@@ -131,8 +136,8 @@ const ResultadosProductos = () => {
             type="range"
             name="precioMin"
             min="0"
-            max="500000"
-            step="100"
+            max="1000000"
+            step="1000"
             value={filtros.precioMin}
             onChange={handleFiltroChange}
           />
@@ -140,15 +145,15 @@ const ResultadosProductos = () => {
             type="range"
             name="precioMax"
             min="0"
-            max="500000"
-            step="100"
+            max="1000000"
+            step="1000"
             value={filtros.precioMax}
             onChange={handleFiltroChange}
           />
         </div>
         <div>
           <label>Marcas</label>
-          <select name="marca" onChange={handleFiltroChange}>
+          <select name="marca" value={filtros.marca} onChange={handleFiltroChange}>
             <option value="">Todas</option>
             {categorias.marcas.map((marca, index) => (
               <option key={index} value={marca}>{marca}</option>
@@ -157,7 +162,7 @@ const ResultadosProductos = () => {
         </div>
         <div>
           <label>Modelos</label>
-          <select name="modelo" onChange={handleFiltroChange}>
+          <select name="modelo" value={filtros.modelo} onChange={handleFiltroChange}>
             <option value="">Todos</option>
             {categorias.modelos.map((modelo, index) => (
               <option key={index} value={modelo}>{modelo}</option>
@@ -201,6 +206,7 @@ const ResultadosProductos = () => {
           )}
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
