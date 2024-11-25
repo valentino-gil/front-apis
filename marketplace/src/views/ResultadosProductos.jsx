@@ -97,13 +97,98 @@ const ResultadosProductos = () => {
     }
   };
 
+  const handleFiltroChange = (e) => {
+    const { name, value } = e.target;
+    setFiltros({
+      ...filtros,
+      [name]: value,
+    });
+  };
+
+  const aplicarFiltros = () => {
+    obtenerProductos(); // Opcional, para recargar datos
+    const productosFiltrados = productos.filter(producto =>
+      producto.año >= filtros.añoMin &&
+      producto.año <= filtros.añoMax &&
+      producto.precio >= filtros.precioMin &&
+      producto.precio <= filtros.precioMax &&
+      (filtros.marca === "" || producto.marca === filtros.marca) &&
+      (filtros.modelo === "" || producto.modelo === filtros.modelo)
+    );
+    setProductos(productosFiltrados);
+  };
+
+  const restablecerFiltros = () => {
+    setFiltros(filtrosIniciales);
+    obtenerProductos();
+  };
+
   return (
     <div className="contenedor-resultados">
       <NavBar />
       <aside className="filtros">
         {/* Filtros */}
         <h2>Filtrar</h2>
-        {/* Código de filtros omitido por brevedad */}
+        <div className="filtro-año">
+          <label>Año: {filtros.añoMin} - {filtros.añoMax}</label>
+          <input
+            type="range"
+            name="añoMin"
+            min="2000"
+            max="2025"
+            value={filtros.añoMin}
+            onChange={handleFiltroChange}
+          />
+          <input
+            type="range"
+            name="añoMax"
+            min="2000"
+            max="2025"
+            value={filtros.añoMax}
+            onChange={handleFiltroChange}
+          />
+        </div>
+        <div className="filtro-precio">
+          <label>Precio: ${filtros.precioMin} - ${filtros.precioMax}</label>
+          <input
+            type="range"
+            name="precioMin"
+            min="0"
+            max="1000000"
+            step="1000"
+            value={filtros.precioMin}
+            onChange={handleFiltroChange}
+          />
+          <input
+            type="range"
+            name="precioMax"
+            min="0"
+            max="1000000"
+            step="1000"
+            value={filtros.precioMax}
+            onChange={handleFiltroChange}
+          />
+        </div>
+        <div>
+          <label>Marcas</label>
+          <select name="marca" value={filtros.marca} onChange={handleFiltroChange}>
+            <option value="">Todas</option>
+            {categorias.marcas.map((marca, index) => (
+              <option key={index} value={marca}>{marca}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label>Modelos</label>
+          <select name="modelo" value={filtros.modelo} onChange={handleFiltroChange}>
+            <option value="">Todos</option>
+            {categorias.modelos.map((modelo, index) => (
+              <option key={index} value={modelo}>{modelo}</option>
+            ))}
+          </select>
+        </div>
+        <button className="botonAplicar" onClick={aplicarFiltros}>Aplicar Filtros</button>
+        <button className="botonRestablecer" onClick={restablecerFiltros}>Restablecer Filtros</button>
       </aside>
       <main className="resultados">
         <h2>Resultados</h2>
@@ -145,3 +230,4 @@ const ResultadosProductos = () => {
 };
 
 export default ResultadosProductos;
+
