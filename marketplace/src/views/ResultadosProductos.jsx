@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
@@ -11,13 +11,14 @@ const ResultadosProductos = () => {
   const filtrosIniciales = {
     añoMax: 2025,
     añoMin: 2000,
-    precioMax: 1000000,
+    precioMax: 100000,
     precioMin: 0,
     marca: "",
     modelo: "",
   };
 
   const [productos, setProductos] = useState([]);
+  const [productosOriginales, setProductosOriginales] = useState([]); // Estado para productos originales
   const [filtros, setFiltros] = useState(filtrosIniciales);
   const [categorias, setCategorias] = useState({
     marcas: [],
@@ -25,13 +26,7 @@ const ResultadosProductos = () => {
   });
   const [favoritos, setFavoritos] = useState([]); // Lista de favoritos
 
-  useEffect(() => {
-    obtenerProductos();
-    obtenerCategorias();
-    cargarFavoritos();
-  }, []);
-
-  const obtenerProductos = async () => {
+  const obtenerProductos = useCallback(async () => {
     try {
       const response = await axios.get('http://localhost:8080/api/producto/all');
       const productosConImagen = response.data.map(producto => ({
@@ -39,12 +34,13 @@ const ResultadosProductos = () => {
         imagenUrl: `http://localhost:8080/api/producto/all/${producto.id}/imagen`,
       }));
       setProductos(productosConImagen);
+      setProductosOriginales(productosConImagen); // Guardamos los productos originales
     } catch (error) {
       console.error('Error al obtener productos:', error);
     }
-  };
+  }, []);
 
-  const obtenerCategorias = async () => {
+  const obtenerCategorias = useCallback(async () => {
     try {
       const response = await axios.get('http://localhost:8080/api/producto/all');
       const productos = response.data;
@@ -54,10 +50,10 @@ const ResultadosProductos = () => {
     } catch (error) {
       console.error('Error al obtener categorías:', error);
     }
-  };
+  }, []);
 
-  const cargarFavoritos = async () => {
-    const token = localStorage.getItem('authToken'); // Asegúrate de manejar autenticación
+  const cargarFavoritos = useCallback(async () => {
+    const token = localStorage.getItem('authToken');
     try {
       const response = await axios.get('http://localhost:8080/api/wishlist', {
         headers: {
@@ -68,7 +64,26 @@ const ResultadosProductos = () => {
     } catch (error) {
       console.error('Error al cargar favoritos:', error);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    obtenerProductos();
+    obtenerCategorias();
+    cargarFavoritos();
+
+    // Listener para evento de producto actualizado
+    const handleProductoActualizado = () => {
+      obtenerProductos();
+      obtenerCategorias();
+    };
+
+    window.addEventListener('producto-actualizado', handleProductoActualizado);
+
+    // Limpiar el listener
+    return () => {
+      window.removeEventListener('producto-actualizado', handleProductoActualizado);
+    };
+  }, [obtenerProductos, obtenerCategorias, cargarFavoritos]);
 
   const toggleFavorito = async (productoId) => {
     const token = localStorage.getItem('authToken');
@@ -92,6 +107,9 @@ const ResultadosProductos = () => {
         });
         setFavoritos(prevFavoritos => [...prevFavoritos, productoId]);
       }
+
+      // Disparar evento de producto actualizado
+      window.dispatchEvent(new Event('producto-actualizado'));
     } catch (error) {
       console.error('Error al actualizar favoritos:', error.response?.data || error.message);
     }
@@ -101,13 +119,13 @@ const ResultadosProductos = () => {
     const { name, value } = e.target;
     setFiltros({
       ...filtros,
-      [name]: value,
+      [name]: value, // Guardamos el valor como string
     });
   };
 
   const aplicarFiltros = () => {
-    obtenerProductos(); // Opcional, para recargar datos
-    const productosFiltrados = productos.filter(producto =>
+    // Filtrar productos según los filtros aplicados
+    const productosFiltrados = productosOriginales.filter(producto =>
       producto.año >= filtros.añoMin &&
       producto.año <= filtros.añoMax &&
       producto.precio >= filtros.precioMin &&
@@ -120,7 +138,7 @@ const ResultadosProductos = () => {
 
   const restablecerFiltros = () => {
     setFiltros(filtrosIniciales);
-    obtenerProductos();
+    setProductos(productosOriginales); // Restaura los datos originales
   };
 
   return (
@@ -154,7 +172,7 @@ const ResultadosProductos = () => {
             type="range"
             name="precioMin"
             min="0"
-            max="1000000"
+            max="100000"
             step="1000"
             value={filtros.precioMin}
             onChange={handleFiltroChange}
@@ -163,7 +181,7 @@ const ResultadosProductos = () => {
             type="range"
             name="precioMax"
             min="0"
-            max="1000000"
+            max="100000"
             step="1000"
             value={filtros.precioMax}
             onChange={handleFiltroChange}
@@ -230,4 +248,3 @@ const ResultadosProductos = () => {
 };
 
 export default ResultadosProductos;
-

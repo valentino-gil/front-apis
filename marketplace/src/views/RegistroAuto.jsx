@@ -16,7 +16,7 @@ const RegistroAuto = () => {
   });
   const [imagen, setImagen] = useState(null);
 
-  const navigate = useNavigate(); // Mover esto dentro del componente
+  const navigate = useNavigate();
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,7 +52,10 @@ const RegistroAuto = () => {
       console.log('Producto registrado:', response.data);
 
       // Redirigir al home
-      navigate('/'); // Aquí se redirige al home
+      navigate('/');
+
+      // Agregar esta línea para disparar el evento de actualización
+      window.dispatchEvent(new Event('producto-actualizado'));
     } catch (error) {
       console.error('Error al registrar el producto:', error.response?.data || error.message);
     }
@@ -60,7 +63,7 @@ const RegistroAuto = () => {
 
   return (
     <div className="registro-auto-container">
-      <NavBar /> {/* Aquí se incluye el NavBar */}
+      <NavBar />
       <h1 className="titulo">Registrar Nuevo Auto</h1>
       <form onSubmit={handleSubmit}>
         <div>

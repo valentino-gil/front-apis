@@ -93,6 +93,9 @@ const ActualizarAuto = () => {
       
       setTimeout(() => {
         navigate('/');
+
+        // Agregar esta línea para disparar el evento de actualización
+        window.dispatchEvent(new Event('producto-actualizado'));
       }, 3000);
     } catch (error) {
       console.error('Error al actualizar el producto:', error);
