@@ -22,6 +22,7 @@
     text-align: center; 
     border: none;  
     background-color: #fff; /* Fondo blanco */
+    min-height: 100vw;
 }
 
 

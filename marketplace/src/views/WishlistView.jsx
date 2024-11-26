@@ -7,6 +7,8 @@ import '../estilos/Wishlist.css';
 
 const WishlistView = () => {
     const [wishlistItems, setWishlistItems] = useState([]);
+    const [mensaje, setMensaje] = useState('');
+    const [mostrarMensaje, setMostrarMensaje] = useState(false);
     const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
 
     // Función para obtener la lista de deseos
@@ -15,17 +17,66 @@ const WishlistView = () => {
             const response = await axios.get('http://localhost:8080/api/wishlist', {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            console.log(response.data);
-            setWishlistItems(response.data); // Usa response.data para configurar la lista de productos
+            setWishlistItems(response.data);
         } catch (error) {
             console.error('Error al obtener la lista de deseos:', error);
         }
     };
 
-    // Cargar la lista de deseos al montar el componente
-    useEffect(() => {
-        fetchWishlist();
-    }, []);
+    // Función para mostrar notificaciones
+    const mostrarNotificacion = (texto, tipo) => {
+        setMensaje(texto);
+        setMostrarMensaje(true);
+        setTimeout(() => {
+            setMostrarMensaje(false);
+        }, 3000);
+    };
+
+    // Función para agregar un producto al carrito
+    const addToCart = async (productoId) => {
+        try {
+            // Verificar stock del producto
+            const productoResponse = await axios.get(`http://localhost:8080/api/producto/all/${productoId}`);
+            const producto = productoResponse.data;
+
+            if (producto.stock <= 0) {
+                mostrarNotificacion('Este producto no tiene stock disponible.', 'error');
+                return;
+            }
+
+            // Comprobar que el carrito no exceda el stock
+            const carritoResponse = await axios.get(`http://localhost:8080/api/carrito/${productoId}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+
+            const carritoItem = carritoResponse.data;
+
+            const cantidadEnCarrito = carritoItem ? carritoItem.cantidad : 0;
+            const nuevaCantidad = cantidadEnCarrito + 1;
+
+            if (nuevaCantidad > producto.stock) {
+                mostrarNotificacion(`Stock insuficiente. Solo hay ${producto.stock} unidades disponibles.`, 'error');
+                return; // No realizar ninguna acción si se supera el stock
+            }
+
+            // Agregar al carrito si todo está bien
+            await axios.post(
+                `http://localhost:8080/api/carrito/`,
+                {
+                    producto: productoId,
+                    cantidad: 1,
+                },
+                {
+                    headers: { Authorization: `Bearer ${token}` },
+                }
+            );
+
+            mostrarNotificacion('Producto agregado al carrito correctamente.', 'éxito');
+        } catch (error) {
+            mostrarNotificacion('Error al agregar el producto al carrito', 'error');
+            console.error('Error al agregar el producto al carrito:', error);
+        }
+    };
 
     // Función para eliminar un producto de la wishlist
     const removeFromWishlist = async (productoId) => {
@@ -33,67 +84,18 @@ const WishlistView = () => {
             await axios.delete(`http://localhost:8080/api/wishlist/${productoId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            setWishlistItems(prevItems => prevItems.filter(item => item.id !== productoId)); // Filtra el producto eliminado
+            setWishlistItems((prevItems) =>
+                prevItems.filter((item) => item.id !== productoId)
+            );
         } catch (error) {
             console.error('Error al eliminar el producto de la lista de deseos:', error);
         }
     };
-// Función para agregar un producto a la wishlist
-const addToWishlist = async (productoId) => {
-    try {
-        const response = await axios.post(
-            `http://localhost:8080/api/wishlist/${productoId}`, // Usamos el ID del producto en la URL
-            {}, // El cuerpo puede estar vacío si no necesitas más datos
-            {
-                headers: { Authorization: `Bearer ${token}` }
-            }
-        );
-        
-        // Agregar el producto recién agregado a la wishlist al estado local
-        setWishlistItems(prevItems => [...prevItems, response.data]); 
-        console.log('Producto agregado a la wishlist:', response.data);
-    } catch (error) {
-        console.error('Error al agregar el producto a la wishlist:', error);
-    }
-};
 
-
-    // Función para agregar un producto al carrito
-    const addToCart = async (productoId) => {
-        try {
-            const response = await axios.get(`http://localhost:8080/api/producto/all/${productoId}`);
-            const carrito = await axios.post(`http://localhost:8080/api/carrito/`, 
-                {
-                    producto: productoId,
-                    cantidad: 1
-                },
-                {
-                headers: { Authorization: `Bearer ${token}` }
-            });
-            if (response.data.stock === 0){
-                await axios.delete(`http://localhost:8080/api/carrito/borrar/${carrito.data.id}`,{
-                    headers:{
-                        Authorization: `Bearer ${token}`
-                    }
-                }
-                );
-            }
-            else if(response.data.stock < carrito.data.cantidad){
-                console.error("La cantidad de stock no es suficiente: ", error);
-                const cantidad = carrito.data.cantidad - 1;
-                await axios.put(`http://localhost:8080/api/carrito/cantidad/${cantidad}`, 
-                { id: itemId },
-                {
-                    headers: { Authorization: `Bearer ${token}` }
-                });
-            }
-            else{
-                alert('Producto agregado al carrito'); // Mensaje de éxito
-            }
-        } catch (error) {
-            console.error('Error al agregar el producto al carrito:', error);
-        }
-    };
+    // Cargar la lista de deseos al montar el componente
+    useEffect(() => {
+        fetchWishlist();
+    }, []);
 
     return (
         <div>
@@ -104,19 +106,31 @@ const addToWishlist = async (productoId) => {
                     {wishlistItems.length === 0 ? (
                         <p>No hay productos en la wishlist.</p>
                     ) : (
-                        wishlistItems.map(item => (
+                        wishlistItems.map((item) => (
                             <div key={item.id} className="wishlist-item">
-                                <img src={item.imagen} alt={`${item.marca} ${item.modelo}`} className="item-image" />
+                                <img
+                                    src={item.imagen}
+                                    alt={`${item.marca} ${item.modelo}`}
+                                    className="item-image"
+                                />
                                 <div className="item-details">
-                                    <h3>{item.marca} {item.modelo} {item.año}</h3>
+                                    <h3>
+                                        {item.marca} {item.modelo} {item.año}
+                                    </h3>
                                     <p className="descripcion">{item.descripcion}</p>
                                     <p className="precio">Precio: ${item.precio}</p>
                                 </div>
-                                <button className="add-to-cart-button" onClick={() => addToCart(item.id)}>
+                                <button
+                                    className="add-to-cart-button"
+                                    onClick={() => addToCart(item.id)}
+                                >
                                     Agregar al carrito
                                     <img src={carrito} alt="carrito" className="logoTrashCan" />
                                 </button>
-                                <button className="remove-button" onClick={() => removeFromWishlist(item.id)}>
+                                <button
+                                    className="remove-button"
+                                    onClick={() => removeFromWishlist(item.id)}
+                                >
                                     Eliminar
                                     <img src={trashcan} alt="borrar" className="logoTrashCan" />
                                 </button>
@@ -124,6 +138,11 @@ const addToWishlist = async (productoId) => {
                         ))
                     )}
                 </div>
+                {mostrarMensaje && (
+                    <div className={`mensaje ${mensaje === 'Producto agregado al carrito correctamente.' ? 'verde' : 'rojo'}`}>
+                        {mensaje}
+                    </div>
+                )}
             </div>
         </div>
     );
